@@ -40,7 +40,7 @@ def send_image(client_socket, image, qualities):
             send_tile(client_socket, tile, qualities[i][j])
 
 def main():
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture('/home/bencivjan/Desktop/climbing.mp4')
     client_socket = socket.socket()
     client_socket.connect(('localhost', 12345))
 
