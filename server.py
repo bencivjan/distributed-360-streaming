@@ -85,11 +85,15 @@ def video_feed_route():
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
 def main():
+    HOST_PUBLIC = '0.0.0.0'
+    HOST_LOCAL = 'localhost'
+    SOCKET_PORT = 8010
+    WEB_PORT = 8080
     server_socket = socket.socket()
-    server_socket.bind(('localhost', 12345))
+    server_socket.bind((HOST_PUBLIC, SOCKET_PORT))
     server_socket.listen(1)
 
-    threading.Thread(target=app.run, kwargs={'host':'localhost', 'port':8080}).start()
+    threading.Thread(target=app.run, kwargs={'host':HOST_LOCAL, 'port':WEB_PORT}).start()
 
     while True:
         client_socket, addr = server_socket.accept()
