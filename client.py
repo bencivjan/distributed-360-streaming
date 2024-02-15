@@ -43,7 +43,7 @@ def main():
     TCP_IP = '10.251.13.228'# '100.72.81.20' # 130.126.136.178'
     TCP_PORT = 8010
 
-    cap = cv2.VideoCapture('/home/bencivjan/Desktop/climbing.mp4')
+    cap = cv2.VideoCapture('../climbing.mp4')
     client_socket = socket.socket()
     client_socket.connect((TCP_IP, TCP_PORT))
 
