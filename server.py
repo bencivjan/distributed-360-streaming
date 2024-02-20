@@ -10,8 +10,8 @@ app = Flask(__name__)
 
 # Global variable to hold the latest image and frame times
 video_captures = {}
-frame_delays = []  # Store frame delays
-frame_times = []  # Store frame times
+frame_delays = {}  # Store frame delays
+frame_times = {}  # Store frame times
 
 def receive_tile(client_socket):
     header = client_socket.recv(4)
@@ -26,8 +26,11 @@ def receive_tile(client_socket):
     return tile
 
 def handle_client(client_socket, addr):
-    # TODO: Figure out how to not use globals
     global video_captures, frame_delays, frame_times
+    client_ip = addr[0]
+    frame_delays[client_ip] = []
+    frame_times[client_ip] = []
+
     while True:
         try:
             num_rows = struct.unpack('B', client_socket.recv(1))[0]
@@ -44,19 +47,19 @@ def handle_client(client_socket, addr):
                 row_tiles = [tiles[index + j] for j in range(num_cols)]
                 combined_rows.append(np.hstack(row_tiles))
                 index += num_cols
-            video_captures[addr[0]] = np.vstack(combined_rows)
+            video_captures[client_ip] = np.vstack(combined_rows)
 
             # End time (last tile received)
             frame_end_time = time.time()
 
             frame_delay = frame_end_time - frame_start_time
-            frame_delays.append(frame_delay)
-            frame_times.append(frame_end_time)
+            frame_delays[client_ip].append(frame_delay)
+            frame_times[client_ip].append(frame_end_time)
 
             # Print frame delay and FPS for each frame
             print(f"Frame Delay: {frame_delay:.6f} seconds")
-            if len(frame_times) > 1:
-                fps = 1 / (frame_times[-1] - frame_times[-2])
+            if len(frame_times[client_ip]) > 1:
+                fps = 1 / (frame_times[client_ip][-1] - frame_times[client_ip][-2])
                 print(f"FPS: {fps:.2f}")
 
         except (ConnectionResetError, BrokenPipeError, struct.error):
@@ -64,11 +67,11 @@ def handle_client(client_socket, addr):
             break
 
     # Calculate and print the average end-to-end frame delay and FPS
-    if frame_delays:
-        average_delay = sum(frame_delays) / len(frame_delays)
+    if client_ip in frame_delays:
+        average_delay = sum(frame_delays[client_ip]) / len(frame_delays[client_ip])
         print(f"Average End-to-End Frame Delay: {average_delay:.6f} seconds")
-    if len(frame_times) > 1:
-        average_fps = len(frame_times) / (frame_times[-1] - frame_times[0])
+    if client_ip in frame_times and len(frame_times[client_ip]) > 1:
+        average_fps = len(frame_times[client_ip]) / (frame_times[client_ip][-1] - frame_times[client_ip][0])
         print(f"Average FPS: {average_fps:.2f}")
 
 def video_feed(camera_id):
@@ -89,7 +92,7 @@ def video_feed_route(camera_id):
 def index():
     links = ''
     for camera_id in video_captures.keys():
-        links += f'<a href="{url_for("video_feed_route", camera_id=camera_id)}">{camera_id}</a>'
+        links += f'<p><a href="{url_for("video_feed_route", camera_id=camera_id)}">{camera_id}</a></p>'
     return links
 
 def main():
