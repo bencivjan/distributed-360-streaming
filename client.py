@@ -55,8 +55,10 @@ def main():
         while True:
             ret, frame = cap.read()
             if not ret:
-                print("Failed to capture frame")
-                break
+                # If we reach the end of the video, reset to the beginning
+                cap.set(cv2.CAP_PROP_POS_FRAMES, 0)
+                print("Finished video stream, restarting from beginning")
+                continue
 
             # qualities = [[100, 100, 100, 100], [100, 100, 100, 100]]
             qualities = cap_compression_profile(calculate_compression_profile(frame, 2, 4))
