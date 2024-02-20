@@ -1,4 +1,4 @@
-from flask import Flask, Response
+from flask import Flask, Response, url_for
 import cv2
 import numpy as np
 import socket
@@ -9,7 +9,7 @@ import time  # Import time for recording frame times
 app = Flask(__name__)
 
 # Global variable to hold the latest image and frame times
-latest_image = None
+video_captures = {}
 frame_delays = []  # Store frame delays
 frame_times = []  # Store frame times
 
@@ -25,8 +25,9 @@ def receive_tile(client_socket):
     tile = cv2.imdecode(np.frombuffer(tile_data, np.uint8), cv2.IMREAD_COLOR)
     return tile
 
-def handle_client(client_socket):
-    global latest_image, frame_delays, frame_times
+def handle_client(client_socket, addr):
+    # TODO: Figure out how to not use globals
+    global video_captures, frame_delays, frame_times
     while True:
         try:
             num_rows = struct.unpack('B', client_socket.recv(1))[0]
@@ -43,7 +44,7 @@ def handle_client(client_socket):
                 row_tiles = [tiles[index + j] for j in range(num_cols)]
                 combined_rows.append(np.hstack(row_tiles))
                 index += num_cols
-            latest_image = np.vstack(combined_rows)
+            video_captures[addr[0]] = np.vstack(combined_rows)
 
             # End time (last tile received)
             frame_end_time = time.time()
@@ -70,19 +71,26 @@ def handle_client(client_socket):
         average_fps = len(frame_times) / (frame_times[-1] - frame_times[0])
         print(f"Average FPS: {average_fps:.2f}")
 
-def video_feed():
-    global latest_image
+def video_feed(camera_id):
+    global video_captures
     while True:
-        if latest_image is not None:
-            ret, jpeg = cv2.imencode('.jpg', latest_image)
+        if camera_id in video_captures:
+            ret, jpeg = cv2.imencode('.jpg', video_captures[camera_id])
             if ret:
                 yield (b'--frame\r\n'
                        b'Content-Type: image/jpeg\r\n\r\n' + jpeg.tobytes() + b'\r\n\r\n')
 
-@app.route('/video_feed')
-def video_feed_route():
-    return Response(video_feed(),
+@app.route(f'/video_feed/<string:camera_id>')
+def video_feed_route(camera_id):
+    return Response(video_feed(camera_id),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
+
+@app.route('/')
+def index():
+    links = ''
+    for camera_id in video_captures.keys():
+        links += f'<a href="{url_for("video_feed_route", camera_id=camera_id)}">{camera_id}</a>'
+    return links
 
 def main():
     HOST_PUBLIC = '0.0.0.0'
@@ -93,11 +101,11 @@ def main():
     server_socket.bind((HOST_PUBLIC, SOCKET_PORT))
     server_socket.listen(1)
 
-    threading.Thread(target=app.run, kwargs={'host':HOST_LOCAL, 'port':WEB_PORT}).start()
+    threading.Thread(target=app.run, kwargs={'host':HOST_PUBLIC, 'port':WEB_PORT}).start()
 
     while True:
         client_socket, addr = server_socket.accept()
-        handle_client(client_socket)
+        threading.Thread(target=handle_client, kwargs={'client_socket':client_socket, 'addr': addr}).start()
 
 if __name__ == '__main__':
     main()
