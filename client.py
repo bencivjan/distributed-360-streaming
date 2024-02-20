@@ -4,6 +4,7 @@ import numpy as np
 import struct
 import time  # Import time for recording start time
 from feature import calculate_edge_density, calculate_corner_density, calculate_contour_density
+import sys
 
 def calculate_compression_profile(frame, num_rows, num_cols):
     edge_density = calculate_edge_density(frame, num_rows, num_cols)
@@ -40,7 +41,10 @@ def send_image(client_socket, image, qualities):
             send_tile(client_socket, tile, qualities[i][j])
 
 def main():
-    TCP_IP = '10.251.13.228'# '100.72.81.20' # 130.126.136.178'
+    if len(sys.argv) < 2:
+        TCP_IP = '130.126.136.178' # default server address
+    else:
+        TCP_IP = sys.argv[1]
     TCP_PORT = 8010
 
     cap = cv2.VideoCapture('/home/bencivjan/Desktop/climbing.mp4')
