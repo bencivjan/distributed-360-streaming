@@ -3,18 +3,8 @@ import socket
 import numpy as np
 import struct
 import time  # Import time for recording start time
-from feature import calculate_edge_density, calculate_corner_density, calculate_contour_density
+from feature import calculate_compression_profile
 import sys
-
-def calculate_compression_profile(frame, num_rows, num_cols):
-    edge_density = calculate_edge_density(frame, num_rows, num_cols)
-    corner_density = calculate_corner_density(frame, num_rows, num_cols)
-    contour_density = calculate_contour_density(frame, num_rows, num_cols)
-
-    combined_density = np.array([edge_density, corner_density, contour_density])
-    average_density = np.mean(combined_density, axis=0)
-
-    return average_density
 
 def cap_compression_profile(matrix):
     transformed_matrix = matrix * 100 * 15

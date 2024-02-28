@@ -4,6 +4,16 @@ import numpy as np
 WIDTH = 960
 HEIGHT = 480
 
+def calculate_compression_profile(frame, num_rows, num_cols):
+    edge_density = calculate_edge_density(frame, num_rows, num_cols)
+    corner_density = calculate_corner_density(frame, num_rows, num_cols)
+    contour_density = calculate_contour_density(frame, num_rows, num_cols)
+
+    combined_density = np.array([edge_density, corner_density, contour_density])
+    average_density = np.mean(combined_density, axis=0)
+
+    return average_density
+
 def calculate_edge_density(image, num_rows, num_cols):
     # Resize
     image = cv2.resize(image, (WIDTH, HEIGHT))
