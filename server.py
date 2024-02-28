@@ -58,6 +58,7 @@ def handle_client(client_socket, addr):
 
             # Print frame delay and FPS for each frame
             print(f"Frame Delay: {frame_delay:.6f} seconds")
+            print(f"Bandwidth: {video_captures[client_ip].nbytes / (frame_delay * 8 * 1024 * 1024):.2f} Mbps")
             if len(frame_times[client_ip]) > 1:
                 fps = 1 / (frame_times[client_ip][-1] - frame_times[client_ip][-2])
                 print(f"FPS: {fps:.2f}")
