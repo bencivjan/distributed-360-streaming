@@ -5,6 +5,7 @@ import struct
 import time  # Import time for recording start time
 from feature import calculate_compression_profile
 import sys
+from ultralytics import YOLO
 
 def cap_compression_profile(matrix):
     transformed_matrix = matrix * 100 * 15
@@ -37,18 +38,22 @@ def main():
         TCP_IP = sys.argv[1]
     TCP_PORT = 8010
 
+    # cap = cv2.VideoCapture(0)
     cap = cv2.VideoCapture('../climbing.mp4')
     client_socket = socket.socket()
     client_socket.connect((TCP_IP, TCP_PORT))
+    yolov8n_model = YOLO('yolov8n.pt')  # pretrained YOLOv8n model
 
     try:
         while True:
             ret, frame = cap.read()
             if not ret:
-                # If we reach the end of the video, reset to the beginning
-                cap.set(cv2.CAP_PROP_POS_FRAMES, 0)
-                print("Finished video stream, restarting from beginning")
-                continue
+                print("Failed to capture frame")
+                break
+            
+            results = yolov8n_model.predict(frame, verbose=False)
+            annotated_frame = results[0].plot() # Visualize the results on the frame
+            print(results)
 
             # qualities = [[100, 100, 100, 100], [100, 100, 100, 100]]
             qualities = cap_compression_profile(calculate_compression_profile(frame, 2, 4))
@@ -63,7 +68,7 @@ def main():
             timestamp = time.time()
             client_socket.sendall(struct.pack('!d', timestamp))
             
-            send_image(client_socket, frame, qualities)
+            send_image(client_socket, annotated_frame, qualities)
     finally:
         cap.release()
         client_socket.close()
