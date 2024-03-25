@@ -6,6 +6,7 @@ import time  # Import time for recording start time
 from feature import calculate_compression_profile
 import sys
 from ultralytics import YOLO
+import torch
 
 def cap_compression_profile(matrix):
     transformed_matrix = matrix * 100 * 15
@@ -51,8 +52,16 @@ def main():
                 print("Failed to capture frame")
                 break
             
-            results = yolov8n_model.predict(frame, verbose=False)
-            annotated_frame = results[0].plot() # Visualize the results on the frame
+            results = yolov8n_model.predict(frame, verbose=False)[0]
+            blurred_frame = cv2.GaussianBlur(frame, (0, 0), 15)
+            print(f"results.boxes {results.boxes}")
+            mask = np.zeros_like(frame)
+            for box in results.boxes.xyxy:
+                x1, y1, x2, y2 = box.to(torch.int)
+                mask[y1:y2, x1:x2] = [255, 255, 255]
+
+            # annotated_frame = results.plot() # Visualize the results on the frame
+            annotated_frame = np.where(mask==[255, 255, 255], frame, blurred_frame)
             print(results)
 
             # qualities = [[100, 100, 100, 100], [100, 100, 100, 100]]
