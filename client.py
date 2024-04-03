@@ -43,6 +43,7 @@ def main():
     cap = cv2.VideoCapture('../climbing.mp4')
     client_socket = socket.socket()
     client_socket.connect((TCP_IP, TCP_PORT))
+    predict_latency = [] # Store model prediction latency
     yolov8n_model = YOLO('yolov8n.pt')  # pretrained YOLOv8n model
 
     try:
@@ -52,7 +53,11 @@ def main():
                 print("Failed to capture frame")
                 break
             
+            start_time = time.time()
             results = yolov8n_model.predict(frame, verbose=False)[0]
+            end_time = time.time()
+            print(f"Time to analyze frame: {(end_time - start_time):.6f}s")
+            predict_latency.append(end_time - start_time)
             blurred_frame = cv2.GaussianBlur(frame, (0, 0), 15)
             print(f"results.boxes {results.boxes}")
             mask = np.zeros_like(frame)
@@ -79,6 +84,7 @@ def main():
             
             send_image(client_socket, annotated_frame, qualities)
     finally:
+        print(f"Average model inference time: {np.mean(predict_latency):.6f}s")
         cap.release()
         client_socket.close()
 
