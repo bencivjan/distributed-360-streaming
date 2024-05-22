@@ -3,18 +3,10 @@ import socket
 import numpy as np
 import struct
 import time  # Import time for recording start time
-from feature import calculate_edge_density, calculate_corner_density, calculate_contour_density
+from feature import calculate_compression_profile
 import sys
-
-def calculate_compression_profile(frame, num_rows, num_cols):
-    edge_density = calculate_edge_density(frame, num_rows, num_cols)
-    corner_density = calculate_corner_density(frame, num_rows, num_cols)
-    contour_density = calculate_contour_density(frame, num_rows, num_cols)
-
-    combined_density = np.array([edge_density, corner_density, contour_density])
-    average_density = np.mean(combined_density, axis=0)
-
-    return average_density
+from ultralytics import YOLO
+import torch
 
 def cap_compression_profile(matrix):
     transformed_matrix = matrix * 100 * 15
@@ -47,18 +39,35 @@ def main():
         TCP_IP = sys.argv[1]
     TCP_PORT = 8010
 
+    # cap = cv2.VideoCapture(0)
     cap = cv2.VideoCapture('../climbing.mp4')
     client_socket = socket.socket()
     client_socket.connect((TCP_IP, TCP_PORT))
+    predict_latency = [] # Store model prediction latency
+    yolov8n_model = YOLO('yolov8n.pt')  # pretrained YOLOv8n model
 
     try:
         while True:
             ret, frame = cap.read()
             if not ret:
-                # If we reach the end of the video, reset to the beginning
-                cap.set(cv2.CAP_PROP_POS_FRAMES, 0)
-                print("Finished video stream, restarting from beginning")
-                continue
+                print("Failed to capture frame")
+                break
+            
+            start_time = time.time()
+            results = yolov8n_model.predict(frame, verbose=False)[0]
+            end_time = time.time()
+            print(f"Time to analyze frame: {(end_time - start_time):.6f}s")
+            predict_latency.append(end_time - start_time)
+            blurred_frame = cv2.GaussianBlur(frame, (0, 0), 15)
+            print(f"results.boxes {results.boxes}")
+            mask = np.zeros_like(frame)
+            for box in results.boxes.xyxy:
+                x1, y1, x2, y2 = box.to(torch.int)
+                mask[y1:y2, x1:x2] = [255, 255, 255]
+
+            # annotated_frame = results.plot() # Visualize the results on the frame
+            annotated_frame = np.where(mask==[255, 255, 255], frame, blurred_frame)
+            print(results)
 
             # qualities = [[100, 100, 100, 100], [100, 100, 100, 100]]
             qualities = cap_compression_profile(calculate_compression_profile(frame, 2, 4))
@@ -73,8 +82,9 @@ def main():
             timestamp = time.time()
             client_socket.sendall(struct.pack('!d', timestamp))
             
-            send_image(client_socket, frame, qualities)
+            send_image(client_socket, annotated_frame, qualities)
     finally:
+        print(f"Average model inference time: {np.mean(predict_latency):.6f}s")
         cap.release()
         client_socket.close()
 
