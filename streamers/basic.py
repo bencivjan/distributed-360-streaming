@@ -2,8 +2,9 @@ import struct
 import logger
 
 class Basic:
-    def __init__(self, sock):
+    def __init__(self, sock, logger=None):
         self.sock = sock
+        self.logger = logger
 
     def send_frame(self, frame):
         frame_data = frame

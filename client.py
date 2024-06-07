@@ -5,7 +5,7 @@ import struct
 import time  # Import time for recording start time
 from feature import calculate_compression_profile
 import sys
-import streamers.mjpeg as mjpeg
+from streamers import mjpeg, basic
 
 def cap_compression_profile(matrix):
     transformed_matrix = matrix * 100 * 15
@@ -64,7 +64,6 @@ def main():
             
             send_image(client_socket, frame, qualities)
     finally:
-        # print(f"Average model inference time: {np.mean(predict_latency):.6f}s")
         cap.release()
         client_socket.close()
 
@@ -72,7 +71,9 @@ def test_stream_frame(compression='none'):
     print(f'STARTING {compression.upper()} COMPRESSION TEST')
     if len(sys.argv) < 2:
         # TCP_IP = '130.126.136.178' # default server address
-        TCP_IP = '100.72.81.13'
+        # TCP_IP = '100.72.81.13'
+        print('Input server IP address as first argument')
+        return
     else:
         TCP_IP = sys.argv[1]
     TCP_PORT = 8010
@@ -82,16 +83,31 @@ def test_stream_frame(compression='none'):
     client_socket.connect((TCP_IP, TCP_PORT))
 
     try:
-        target_fps = 5 # Thottle to set fps for energy consistency
+        # target_fps = 5 # Thottle to set fps for energy consistency
         # Calculate the time to wait between frames
-        frame_time = 1.0 / target_fps
+        # frame_time = 1.0 / target_fps
         frames_read = 0
         test_start_time = time.time()
 
-        streamer = mjpeg.Mjpeg(client_socket, 50)
+        print(f'Streaming with {compression} compression')
+        if compression == 'none':
+            client_socket.sendall(struct.pack('B', 0x0))
+            streamer = basic.Basic(client_socket)
+        elif compression == 'jpeg-30':
+            client_socket.sendall(struct.pack('B', 0x1))
+            streamer = mjpeg.Mjpeg(client_socket, qf=30)
+        elif compression == 'jpeg-50':
+            client_socket.sendall(struct.pack('B', 0x2))
+            streamer = mjpeg.Mjpeg(client_socket, qf=50)
+        elif compression == 'jpeg-90':
+            client_socket.sendall(struct.pack('B', 0x3))
+            streamer = mjpeg.Mjpeg(client_socket, qf=90)
+        else:
+            print('Unsupported compression algorithm!')
+            return
 
         while True:
-            start_time = time.time()
+            # start_time = time.time()
             ret, frame = cap.read()
             frames_read += 1
             if not ret:
@@ -103,10 +119,10 @@ def test_stream_frame(compression='none'):
             print(frame.nbytes)
 
             # Calculate elapsed time and sleep if necessary
-            elapsed_time = time.time() - start_time
-            time_to_wait = frame_time - elapsed_time
-            if time_to_wait > 0:
-                time.sleep(time_to_wait)
+            # elapsed_time = time.time() - start_time
+            # time_to_wait = frame_time - elapsed_time
+            # if time_to_wait > 0:
+            #     time.sleep(time_to_wait)
     finally:
         cap.release()
         client_socket.close()
