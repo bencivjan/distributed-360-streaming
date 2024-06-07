@@ -6,6 +6,8 @@ import struct
 import threading
 import time  # Import time for recording frame times
 from ultralytics import YOLO
+from streamers import mjpeg, basic
+from logger import Logger
 
 app = Flask(__name__)
 
@@ -190,48 +192,18 @@ def test_stream_frame():
         frame_times[client_ip] = []
         frame_size[client_ip] = []
 
+        logger = Logger('./mjpeg-logs.txt')
+        streamer = mjpeg.Mjpeg(client_socket, logger=logger)
+
         while True:
             try:
-                # Start time (first tile sent from client)
-                frame_start_time = struct.unpack('!d', client_socket.recv(8))[0]
-
-                frame_data_length = struct.unpack('!I', client_socket.recv(4))[0]
-                frame_size[client_ip].append(frame_data_length)
-
-                frame_data = b''
-                while len(frame_data) < frame_data_length:
-                    chunk = client_socket.recv(min(frame_data_length - len(frame_data), 4096))
-                    frame_data += chunk
-                    # print(f'Bytes received: {len(frame_data)}')
-
-                # End time (last tile received)
-                frame_end_time = time.time()
-
-                frame_delay = frame_end_time - frame_start_time
-                frame_delays[client_ip].append(frame_delay)
-                frame_times[client_ip].append(frame_end_time)
-
-                # Print frame delay and FPS for each frame
-                print(f"Frame Delay: {frame_delay:.6f} seconds")
-                print(f"Compressed Frame Size: {frame_size[client_ip][-1] / 1000:2f} KB")
-                if len(frame_times[client_ip]) > 1:
-                    fps = 1 / (frame_times[client_ip][-1] - frame_times[client_ip][-2])
-                    print(f"FPS: {fps:.2f}")
+                frame = streamer.get_frame()
 
             except (ConnectionResetError, BrokenPipeError, struct.error):
                 print("Client disconnected or error occurred")
                 break
-
-        # Calculate and print the video processing statistics
-        if client_ip in frame_delays:
-            average_delay = sum(frame_delays[client_ip]) / len(frame_delays[client_ip])
-            print(f"Average End-to-End Frame Delay: {average_delay:.6f} seconds")
-        if client_ip in frame_times and len(frame_times[client_ip]) > 1:
-            average_fps = len(frame_times[client_ip]) / (frame_times[client_ip][-1] - frame_times[client_ip][0])
-            print(f"Average FPS: {average_fps:.2f}")
-        if client_ip in frame_size and len(frame_size[client_ip]) > 1:
-            average_frame_size = sum(frame_size[client_ip]) / len(frame_size[client_ip])
-            print(f"Average Compressed Frame Size: {average_frame_size / 1000:2f} KB")
+        
+        logger.flush()
         
     print(f'==TEST WITH NO COMPRESSION==\nListening on port {SOCKET_PORT}')
     while True:
