@@ -130,7 +130,7 @@ def test_read_frame_and_tile_compression():
             time.sleep(time_to_wait)
 
 if __name__ == '__main__':
-    # main()
+    main()
     # test_read_frame()
     # test_read_frame_and_tile_compression()
     # test_read_frame_and_compression()

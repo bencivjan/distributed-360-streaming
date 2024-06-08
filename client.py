@@ -5,7 +5,7 @@ import struct
 import time  # Import time for recording start time
 from feature import calculate_compression_profile
 import sys
-from streamers import mjpeg, basic
+from streamers import mjpeg, basic, tile_spatial
 
 def cap_compression_profile(matrix):
     transformed_matrix = matrix * 100 * 15
@@ -93,15 +93,18 @@ def test_stream_frame(compression='none'):
         if compression == 'none':
             client_socket.sendall(struct.pack('B', 0x0))
             streamer = basic.Basic(client_socket)
-        elif compression == 'jpeg-30':
+        elif compression == 'mjpeg-30':
             client_socket.sendall(struct.pack('B', 0x1))
             streamer = mjpeg.Mjpeg(client_socket, qf=30)
-        elif compression == 'jpeg-50':
+        elif compression == 'mjpeg-50':
             client_socket.sendall(struct.pack('B', 0x2))
             streamer = mjpeg.Mjpeg(client_socket, qf=50)
-        elif compression == 'jpeg-90':
+        elif compression == 'mjpeg-90':
             client_socket.sendall(struct.pack('B', 0x3))
             streamer = mjpeg.Mjpeg(client_socket, qf=90)
+        elif compression == 'tiled-spatial':
+            client_socket.sendall(struct.pack('B', 0x4))
+            streamer = tile_spatial.TileSpatial(client_socket)
         else:
             print('Unsupported compression algorithm!')
             return
@@ -128,4 +131,9 @@ def test_stream_frame(compression='none'):
         client_socket.close()
 
 if __name__ == '__main__':
-    test_stream_frame(compression='jpeg-50')
+    # 'none'
+    # 'mjpeg-30'
+    # 'mjpeg-50'
+    # 'mjpeg-90'
+    # 'tiled-spatial'
+    test_stream_frame(compression='tiled-spatial')

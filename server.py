@@ -6,7 +6,7 @@ import struct
 import threading
 import time  # Import time for recording frame times
 from ultralytics import YOLO
-from streamers import mjpeg, basic
+from streamers import mjpeg, basic, tile_spatial
 from logger import Logger
 import os
 
@@ -23,14 +23,23 @@ def handle_client(client_socket, addr):
     os.makedirs(IMGS_PATH, exist_ok=True)
     frame_idx = 0
 
-    logger = Logger(f'./mjpeg_logs_{client_ip}.txt')
-
     compression_alg = struct.unpack('B', client_socket.recv(1))[0]
     print(f'compression_alg: {compression_alg}')
     if compression_alg == 0x0:
+        logger = Logger(f'./basic_logs_{client_ip}.txt')
         streamer = basic.Basic(client_socket, logger=logger)
-    elif compression_alg in [0x1, 0x2, 0x3]:
+    elif compression_alg == 0x1:
+        logger = Logger(f'./mjpeg30_logs_{client_ip}.txt')
         streamer = mjpeg.Mjpeg(client_socket, logger=logger)
+    elif compression_alg == 0x2:
+        logger = Logger(f'./mjpeg50_logs_{client_ip}.txt')
+        streamer = mjpeg.Mjpeg(client_socket, logger=logger)
+    elif compression_alg == 0x3:
+        logger = Logger(f'./mjpeg90_logs_{client_ip}.txt')
+        streamer = mjpeg.Mjpeg(client_socket, logger=logger)
+    elif compression_alg == 0x4:
+        logger = Logger(f'./tiled_logs_{client_ip}.txt')
+        streamer = tile_spatial.TileSpatial(client_socket, logger=logger)
     else:
         print('Unsupported compression algorithm!')
         return
@@ -44,16 +53,17 @@ def handle_client(client_socket, addr):
             frame_idx += 1
             if ret == False:
                 print(f'Failed to write image to {img_name}')
+                del video_captures[client_ip]
+                break
         except (ConnectionResetError, BrokenPipeError, struct.error):
             print("Client disconnected or error occurred")
+            del video_captures[client_ip]
             break
     logger.flush()
 
 def video_feed(camera_id):
-    global video_captures, client_delays, model_compute_times
-    client_delays[camera_id] = []
-    model_compute_times[camera_id] = []
-    yolov8n_model = YOLO('yolov8l.pt')  # pretrained YOLOv8n model
+    global video_captures
+    yolov8n_model = YOLO('yolov8n.pt')  # pretrained YOLOv8n model
     while True:
         if camera_id in video_captures:
             orig_img = video_captures[camera_id]
@@ -61,8 +71,7 @@ def video_feed(camera_id):
             results = yolov8n_model.predict(orig_img, verbose=False)
             print(f"Pred time: {time.time() - start}")
             annotated_frame = results[0].plot() # Visualize the results on the frame
-            compute_time = results[0].speed['preprocess'] + results[0].speed['inference'] + results[0].speed['postprocess']
-            model_compute_times[camera_id].append(compute_time)
+            # compute_time = results[0].speed['preprocess'] + results[0].speed['inference'] + results[0].speed['postprocess']
             ret, jpeg = cv2.imencode('.jpg', annotated_frame)
             if ret:
                 yield (b'--frame\r\n'
