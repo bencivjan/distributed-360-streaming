@@ -3,6 +3,7 @@ import cv2
 import numpy as np
 import time
 from feature import calculate_compression_profile
+import datetime
 
 class TileSpatial:
     def __init__(self, sock, logger=None):
@@ -38,33 +39,42 @@ class TileSpatial:
                 self.send_tile(tile, qualities[i][j])
 
     def send_frame(self, frame):
-        # qualities = [[100, 100, 100, 100], [100, 100, 100, 100]]
-        qualities = self.cap_compression_profile(calculate_compression_profile(frame, 2, 4))
-        
-        print("Compression Profile:\n", qualities)
-        # Send the number of rows and columns
-        num_rows, num_cols = len(qualities), len(qualities[0])
+        try:
+            # qualities = [[100, 100, 100, 100], [100, 100, 100, 100]]
+            qualities = self.cap_compression_profile(calculate_compression_profile(frame, 2, 4))
+            
+            print("Compression Profile:\n", qualities)
+            # Send the number of rows and columns
+            num_rows, num_cols = len(qualities), len(qualities[0])
 
-        # Send the timestamp
-        start_time = time.time()
-        self.sock.sendall(struct.pack('!d', start_time))
-        
-        self.sock.sendall(struct.pack('B', num_rows))
-        self.sock.sendall(struct.pack('B', num_cols))
-        
-        self.send_image(frame, qualities)
-        end_time = time.time()
+            # Send the timestamp
+            start_time = time.time()
+            self.sock.sendall(struct.pack('!d', start_time))
+            
+            self.sock.sendall(struct.pack('B', num_rows))
+            self.sock.sendall(struct.pack('B', num_cols))
+            
+            self.send_image(frame, qualities)
+            end_time = time.time()
 
-        log = {}
+            log = {}
 
-        log['frame'] = self.send_frame_idx
-        log['client_send_start_time'] = start_time
-        log['client_send_end_time'] = end_time
-        log['client_send_duration'] = f'{end_time - start_time:.4f}'
+            log['frame'] = self.send_frame_idx
+            log['client_send_start_time'] = start_time
+            log['client_send_end_time'] = end_time
+            log['client_send_duration'] = f'{end_time - start_time:.4f}'
 
-        if self.logger:
-            self.logger.log(log)
-        self.send_frame_idx += 1
+            if self.logger:
+                self.logger.log(log)
+            self.send_frame_idx += 1
+        except TimeoutError:
+            print("Unable to send frame, connection timed out...")
+            if self.logger:
+                datetime_obj = datetime.fromtimestamp(time.time())
+                readable_time = datetime_obj.strftime("%Y-%m-%d %H:%M:%S")
+                self.logger.log({
+                    'Connection timed out': readable_time
+                })
 
     def receive_tile(self):
         header = self.sock.recv(4)

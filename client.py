@@ -3,9 +3,11 @@ import socket
 import numpy as np
 import struct
 import time
+from datetime import datetime
 import sys
 import os
 from streamers import mjpeg, basic, tile_spatial, webp
+from logger import Logger
 
 mod_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), 'streamers', 'ffenc_uiuc'))
 if mod_dir not in sys.path:
@@ -23,7 +25,18 @@ def stream_video(compression='none'):
 
     cap = cv2.VideoCapture('videos/climbing.mp4')
     client_socket = socket.socket()
-    client_socket.connect((TCP_IP, TCP_PORT))
+    client_socket.settimeout(5)  # 5 seconds timeout
+    while True:
+        try:
+            client_socket.connect((TCP_IP, TCP_PORT))
+            break
+        except OSError:
+            print("Unable to connect to server socket, retrying...")
+            datetime_obj = datetime.fromtimestamp(time.time())
+            readable_time = datetime_obj.strftime("%Y-%m-%d %H:%M:%S")
+            with open("errors.out", "a") as err_file:
+                err_file.write(f'{readable_time}: Unable to connect to server at {TCP_IP}\n')
+            time.sleep(5)
 
     try:
         # target_fps = 5 # Thottle to set fps for energy consistency
@@ -34,29 +47,36 @@ def stream_video(compression='none'):
 
         print(f'Streaming with {compression} compression')
         if compression == 'none':
+            logger = Logger(f'./basic_logs.txt')
             client_socket.sendall(struct.pack('B', 0x0))
-            streamer = basic.Basic(client_socket)
+            streamer = basic.Basic(client_socket, logger=logger)
         elif compression == 'mjpeg-30':
+            logger = Logger(f'./mjpeg30_logs.txt')
             client_socket.sendall(struct.pack('B', 0x1))
-            streamer = mjpeg.Mjpeg(client_socket, qf=30)
+            streamer = mjpeg.Mjpeg(client_socket, qf=30, logger=logger)
         elif compression == 'mjpeg-50':
+            logger = Logger(f'./mjpeg50_logs.txt')
             client_socket.sendall(struct.pack('B', 0x2))
-            streamer = mjpeg.Mjpeg(client_socket, qf=50)
+            streamer = mjpeg.Mjpeg(client_socket, qf=50, logger=logger)
         elif compression == 'mjpeg-90':
+            logger = Logger(f'./mjpeg90_logs.txt')
             client_socket.sendall(struct.pack('B', 0x3))
-            streamer = mjpeg.Mjpeg(client_socket, qf=90)
+            streamer = mjpeg.Mjpeg(client_socket, qf=90, logger=logger)
         elif compression == 'webp':
+            logger = Logger(f'./webp50_logs.txt')
             client_socket.sendall(struct.pack('B', 0x4))
-            streamer = webp.Webp(client_socket, qf=50)
+            streamer = webp.Webp(client_socket, qf=50, logger=logger)
         elif compression == 'tiled-spatial':
+            logger = Logger(f'./tiled_logs.txt')
             client_socket.sendall(struct.pack('B', 0x5))
-            streamer = tile_spatial.TileSpatial(client_socket)
+            streamer = tile_spatial.TileSpatial(client_socket, logger=logger)
         elif compression == 'h264':
+            logger = Logger(f'./h264_logs.txt')
             client_socket.sendall(struct.pack('B', 0x6))
             fps = cap.get(cv2.CAP_PROP_FPS)
             width = cap.get(cv2.CAP_PROP_FRAME_WIDTH)
             height = cap.get(cv2.CAP_PROP_FRAME_HEIGHT)
-            streamer = h264.H264(client_socket, width, height, fps)
+            streamer = h264.H264(client_socket, width, height, fps, logger=logger)
         else:
             print('Unsupported compression algorithm!')
             return
@@ -79,6 +99,7 @@ def stream_video(compression='none'):
             # if time_to_wait > 0:
             #     time.sleep(time_to_wait)
     finally:
+        logger.flush()
         cap.release()
         client_socket.close()
 

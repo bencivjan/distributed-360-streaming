@@ -4,6 +4,7 @@ import ffenc
 import numpy as np
 import cv2
 import struct
+import datetime
 
 class H264:
     def __init__(self, sock, w=0, h=0, fps=0, logger=None):
@@ -17,26 +18,35 @@ class H264:
         self.nbytes_received = 0
 
     def send_frame(self, frame):
-        out = self.encoder.process_frame(frame)
+        try:
+            out = self.encoder.process_frame(frame)
 
-        print(f'Frame size: {out.shape[0]} bytes')
-        start_time = time.time()
+            print(f'Frame size: {out.shape[0]} bytes')
+            start_time = time.time()
 
-        self.sock.sendall(struct.pack('!d', start_time))
-        self.sock.sendall(struct.pack('!I', out.shape[0]))
-        self.sock.sendall(out.tobytes())
-        end_time = time.time()
+            self.sock.sendall(struct.pack('!d', start_time))
+            self.sock.sendall(struct.pack('!I', out.shape[0]))
+            self.sock.sendall(out.tobytes())
+            end_time = time.time()
 
-        log = {}
+            log = {}
 
-        log['frame'] = self.send_frame_idx
-        log['client_send_start_time'] = start_time
-        log['client_send_end_time'] = end_time
-        log['client_send_duration'] = f'{end_time - start_time:.4f}'
+            log['frame'] = self.send_frame_idx
+            log['client_send_start_time'] = start_time
+            log['client_send_end_time'] = end_time
+            log['client_send_duration'] = f'{end_time - start_time:.4f}'
 
-        if self.logger:
-            self.logger.log(log)
-        self.send_frame_idx += 1
+            if self.logger:
+                self.logger.log(log)
+            self.send_frame_idx += 1
+        except TimeoutError:
+            print("Unable to send frame, connection timed out...")
+            if self.logger:
+                datetime_obj = datetime.fromtimestamp(time.time())
+                readable_time = datetime_obj.strftime("%Y-%m-%d %H:%M:%S")
+                self.logger.log({
+                    'Connection timed out': readable_time
+                })
         
     def get_frame(self):
         client_send_start_time = struct.unpack('!d', self.sock.recv(8))[0]
