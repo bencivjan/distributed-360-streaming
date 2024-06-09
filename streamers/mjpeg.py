@@ -62,6 +62,7 @@ class Mjpeg:
         bandwidth = data_length / network_duration
 
         log['frame'] = self.recv_frame_idx
+        log['frame_size'] = f'{data_length / 1000} KB'
         log['client_send_start_time'] = client_send_start_time
         log['server_recv_start_time'] = server_recv_start_time
         log['server_recv_end_time'] = server_recv_end_time

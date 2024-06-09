@@ -90,4 +90,10 @@ if __name__ == '__main__':
     # 'webp'
     # 'tiled-spatial'
     # 'h264'
+    # stream_video(compression='none')
+    stream_video(compression='mjpeg-30')
     stream_video(compression='mjpeg-50')
+    stream_video(compression='mjpeg-90')
+    stream_video(compression='webp')
+    stream_video(compression='tiled-spatial')
+    stream_video(compression='h264')

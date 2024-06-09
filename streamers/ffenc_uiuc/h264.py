@@ -19,6 +19,7 @@ class H264:
     def send_frame(self, frame):
         out = self.encoder.process_frame(frame)
 
+        print(f'Frame size: {out.shape[0]} bytes')
         start_time = time.time()
 
         self.sock.sendall(struct.pack('!d', start_time))
@@ -64,6 +65,7 @@ class H264:
         bandwidth = data_length / network_duration
 
         log['frame'] = self.recv_frame_idx
+        log['frame_size'] = f'{data_length / 1000} KB'
         log['client_send_start_time'] = client_send_start_time
         log['server_recv_start_time'] = server_recv_start_time
         log['server_recv_end_time'] = server_recv_end_time

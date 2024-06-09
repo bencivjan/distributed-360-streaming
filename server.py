@@ -79,7 +79,7 @@ def handle_client(client_socket, addr):
     logger.log({
         'Frames read': frame_idx + 1,
         'Total time': total_time,
-        'Total bytes received': streamer.nbytes_received,
+        'Total bytes received': f'{streamer.nbytes_received / 1_000_000} MB',
         'Overall FPS': (frame_idx + 1) / total_time,
         'Overall Bandwidth': f'{(streamer.nbytes_received * 8) / 1_000_000} Mbps'
     })
