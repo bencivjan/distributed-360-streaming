@@ -9,6 +9,12 @@ from ultralytics import YOLO
 from streamers import mjpeg, basic, tile_spatial
 from logger import Logger
 import os
+import sys
+
+mod_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), 'streamers', 'ffenc_uiuc'))
+if mod_dir not in sys.path:
+    sys.path.append(mod_dir)
+from streamers.ffenc_uiuc import h264
 
 app = Flask(__name__)
 
@@ -40,6 +46,9 @@ def handle_client(client_socket, addr):
     elif compression_alg == 0x4:
         logger = Logger(f'./tiled_logs_{client_ip}.txt')
         streamer = tile_spatial.TileSpatial(client_socket, logger=logger)
+    elif compression_alg == 0x5:
+        logger = Logger(f'./h264_{client_ip}.txt')
+        streamer = h264.H264(client_socket, logger=logger)
     else:
         print('Unsupported compression algorithm!')
         return
@@ -47,9 +56,12 @@ def handle_client(client_socket, addr):
     while True:
         try:
             frame = streamer.get_frame()
+            if frame is None:
+                raise ConnectionResetError
             video_captures[client_ip] = frame
             img_name = IMGS_PATH + str(frame_idx) + '.jpg'
             ret = cv2.imwrite(img_name, frame)
+            print(ret)
             frame_idx += 1
             if ret == False:
                 print(f'Failed to write image to {img_name}')
