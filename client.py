@@ -5,7 +5,7 @@ import struct
 import time
 import sys
 import os
-from streamers import mjpeg, basic, tile_spatial
+from streamers import mjpeg, basic, tile_spatial, webp
 
 mod_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), 'streamers', 'ffenc_uiuc'))
 if mod_dir not in sys.path:
@@ -45,11 +45,14 @@ def stream_video(compression='none'):
         elif compression == 'mjpeg-90':
             client_socket.sendall(struct.pack('B', 0x3))
             streamer = mjpeg.Mjpeg(client_socket, qf=90)
-        elif compression == 'tiled-spatial':
+        elif compression == 'webp':
             client_socket.sendall(struct.pack('B', 0x4))
+            streamer = webp.Webp(client_socket, qf=50)
+        elif compression == 'tiled-spatial':
+            client_socket.sendall(struct.pack('B', 0x5))
             streamer = tile_spatial.TileSpatial(client_socket)
         elif compression == 'h264':
-            client_socket.sendall(struct.pack('B', 0x5))
+            client_socket.sendall(struct.pack('B', 0x6))
             fps = cap.get(cv2.CAP_PROP_FPS)
             width = cap.get(cv2.CAP_PROP_FRAME_WIDTH)
             height = cap.get(cv2.CAP_PROP_FRAME_HEIGHT)
@@ -84,6 +87,7 @@ if __name__ == '__main__':
     # 'mjpeg-30'
     # 'mjpeg-50'
     # 'mjpeg-90'
+    # 'webp'
     # 'tiled-spatial'
     # 'h264'
-    stream_video(compression='none')
+    stream_video(compression='mjpeg-50')

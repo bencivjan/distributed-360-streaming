@@ -14,6 +14,7 @@ class H264:
         self.buffer = b''
         self.send_frame_idx = 0
         self.recv_frame_idx = 0
+        self.nbytes_received = 0
 
     def send_frame(self, frame):
         out = self.encoder.process_frame(frame)
@@ -48,6 +49,8 @@ class H264:
                 return None
             self.buffer += data
 
+        self.nbytes_received += len(self.buffer)
+
         server_recv_end_time = time.time()
 
         data = np.frombuffer(self.buffer, dtype=np.uint8)
@@ -61,7 +64,7 @@ class H264:
         bandwidth = data_length / network_duration
 
         log['frame'] = self.recv_frame_idx
-        log['client_start_time'] = client_send_start_time
+        log['client_send_start_time'] = client_send_start_time
         log['server_recv_start_time'] = server_recv_start_time
         log['server_recv_end_time'] = server_recv_end_time
         log['server_recv_duration'] = server_recv_end_time - server_recv_start_time

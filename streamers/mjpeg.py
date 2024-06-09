@@ -11,6 +11,7 @@ class Mjpeg:
         self.buffer = b''
         self.send_frame_idx = 0
         self.recv_frame_idx = 0
+        self.nbytes_received = 0
 
     def send_frame(self, frame):
         encode_param = [int(cv2.IMWRITE_JPEG_QUALITY), self.qf]
@@ -49,6 +50,8 @@ class Mjpeg:
                 return None
             self.buffer += data
 
+        self.nbytes_received += len(self.buffer)
+
         server_recv_end_time = time.time()
         frame = cv2.imdecode(np.frombuffer(self.buffer, np.uint8), cv2.IMREAD_COLOR)
         self.buffer = b''
@@ -59,7 +62,7 @@ class Mjpeg:
         bandwidth = data_length / network_duration
 
         log['frame'] = self.recv_frame_idx
-        log['client_start_time'] = client_send_start_time
+        log['client_send_start_time'] = client_send_start_time
         log['server_recv_start_time'] = server_recv_start_time
         log['server_recv_end_time'] = server_recv_end_time
         log['server_recv_duration'] = server_recv_end_time - server_recv_start_time

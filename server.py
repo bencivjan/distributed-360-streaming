@@ -6,7 +6,7 @@ import struct
 import threading
 import time  # Import time for recording frame times
 from ultralytics import YOLO
-from streamers import mjpeg, basic, tile_spatial
+from streamers import mjpeg, basic, tile_spatial, webp
 from logger import Logger
 import os
 import sys
@@ -44,15 +44,19 @@ def handle_client(client_socket, addr):
         logger = Logger(f'./mjpeg90_logs_{client_ip}.txt')
         streamer = mjpeg.Mjpeg(client_socket, logger=logger)
     elif compression_alg == 0x4:
+        logger = Logger(f'./webp50_logs_{client_ip}.txt')
+        streamer = webp.Webp(client_socket, qf=50, logger=logger)
+    elif compression_alg == 0x5:
         logger = Logger(f'./tiled_logs_{client_ip}.txt')
         streamer = tile_spatial.TileSpatial(client_socket, logger=logger)
-    elif compression_alg == 0x5:
+    elif compression_alg == 0x6:
         logger = Logger(f'./h264_{client_ip}.txt')
         streamer = h264.H264(client_socket, logger=logger)
     else:
         print('Unsupported compression algorithm!')
         return
 
+    total_start_time = time.time()
     while True:
         try:
             frame = streamer.get_frame()
@@ -61,7 +65,6 @@ def handle_client(client_socket, addr):
             video_captures[client_ip] = frame
             img_name = IMGS_PATH + str(frame_idx) + '.jpg'
             ret = cv2.imwrite(img_name, frame)
-            print(ret)
             frame_idx += 1
             if ret == False:
                 print(f'Failed to write image to {img_name}')
@@ -71,6 +74,15 @@ def handle_client(client_socket, addr):
             print("Client disconnected or error occurred")
             del video_captures[client_ip]
             break
+    total_end_time = time.time()
+    total_time = total_end_time - total_start_time
+    logger.log({
+        'Frames read': frame_idx + 1,
+        'Total time': total_time,
+        'Total bytes received': streamer.nbytes_received,
+        'Overall FPS': (frame_idx + 1) / total_time,
+        'Overall Bandwidth': f'{(streamer.nbytes_received * 8) / 1_000_000} Mbps'
+    })
     logger.flush()
 
 def video_feed(camera_id):
