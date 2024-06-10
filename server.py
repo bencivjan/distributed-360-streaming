@@ -44,12 +44,18 @@ def handle_client(client_socket, addr):
         logger = Logger(f'./mjpeg90_logs_{client_ip}.txt')
         streamer = mjpeg.Mjpeg(client_socket, logger=logger)
     elif compression_alg == 0x4:
-        logger = Logger(f'./webp50_logs_{client_ip}.txt')
-        streamer = webp.Webp(client_socket, qf=50, logger=logger)
+        logger = Logger(f'./webp30_logs_{client_ip}.txt')
+        streamer = webp.Webp(client_socket, logger=logger)
     elif compression_alg == 0x5:
+        logger = Logger(f'./webp50_logs_{client_ip}.txt')
+        streamer = webp.Webp(client_socket, logger=logger)
+    elif compression_alg == 0x6:
+        logger = Logger(f'./webp90_logs_{client_ip}.txt')
+        streamer = webp.Webp(client_socket, logger=logger)
+    elif compression_alg == 0x7:
         logger = Logger(f'./tiled_logs_{client_ip}.txt')
         streamer = tile_spatial.TileSpatial(client_socket, logger=logger)
-    elif compression_alg == 0x6:
+    elif compression_alg == 0x8:
         logger = Logger(f'./h264_{client_ip}.txt')
         streamer = h264.H264(client_socket, logger=logger)
     else:

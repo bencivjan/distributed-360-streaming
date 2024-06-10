@@ -62,17 +62,25 @@ def stream_video(compression='none'):
             logger = Logger(f'./mjpeg90_logs.txt')
             client_socket.sendall(struct.pack('B', 0x3))
             streamer = mjpeg.Mjpeg(client_socket, qf=90, logger=logger)
-        elif compression == 'webp':
-            logger = Logger(f'./webp50_logs.txt')
+        elif compression == 'webp-30':
+            logger = Logger(f'./webp30_logs.txt')
             client_socket.sendall(struct.pack('B', 0x4))
+            streamer = webp.Webp(client_socket, qf=30, logger=logger)
+        elif compression == 'webp-50':
+            logger = Logger(f'./webp50_logs.txt')
+            client_socket.sendall(struct.pack('B', 0x5))
             streamer = webp.Webp(client_socket, qf=50, logger=logger)
+        elif compression == 'webp-90':
+            logger = Logger(f'./webp90_logs.txt')
+            client_socket.sendall(struct.pack('B', 0x6))
+            streamer = webp.Webp(client_socket, qf=90, logger=logger)
         elif compression == 'tiled-spatial':
             logger = Logger(f'./tiled_logs.txt')
-            client_socket.sendall(struct.pack('B', 0x5))
+            client_socket.sendall(struct.pack('B', 0x7))
             streamer = tile_spatial.TileSpatial(client_socket, logger=logger)
         elif compression == 'h264':
             logger = Logger(f'./h264_logs.txt')
-            client_socket.sendall(struct.pack('B', 0x6))
+            client_socket.sendall(struct.pack('B', 0x8))
             fps = cap.get(cv2.CAP_PROP_FPS)
             width = cap.get(cv2.CAP_PROP_FRAME_WIDTH)
             height = cap.get(cv2.CAP_PROP_FRAME_HEIGHT)
@@ -115,6 +123,8 @@ if __name__ == '__main__':
     stream_video(compression='mjpeg-30')
     stream_video(compression='mjpeg-50')
     stream_video(compression='mjpeg-90')
-    stream_video(compression='webp')
+    stream_video(compression='webp-30')
+    stream_video(compression='webp-50')
+    stream_video(compression='webp-90')
     stream_video(compression='tiled-spatial')
     stream_video(compression='h264')
