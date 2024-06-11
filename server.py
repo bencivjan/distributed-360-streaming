@@ -74,19 +74,21 @@ def handle_client(client_socket, addr):
             frame_idx += 1
             if ret == False:
                 print(f'Failed to write image to {img_name}')
-                del video_captures[client_ip]
+                if client_ip in video_captures:
+                    del video_captures[client_ip]
                 break
         except (ConnectionResetError, BrokenPipeError, struct.error):
             print("Client disconnected or error occurred")
-            del video_captures[client_ip]
+            if client_ip in video_captures:
+                del video_captures[client_ip]
             break
     total_end_time = time.time()
     total_time = total_end_time - total_start_time
     logger.log({
-        'Frames read': frame_idx + 1,
+        'Frames read': frame_idx,
         'Total time': total_time,
         'Total bytes received': f'{streamer.nbytes_received / 1_000_000} MB',
-        'Overall FPS': (frame_idx + 1) / total_time,
+        'Overall FPS': frame_idx / total_time,
         'Overall Bandwidth': f'{(streamer.nbytes_received * 8) / 1_000_000} Mbps'
     })
     logger.flush()

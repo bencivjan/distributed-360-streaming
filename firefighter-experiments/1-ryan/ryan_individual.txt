@@ -1,0 +1,49 @@
+iperf 3.17.1
+Darwin wirelessprv-10-195-156-118.near.illinois.edu 23.3.0 Darwin Kernel Version 23.3.0: Wed Dec 20 21:31:00 PST 2023; root:xnu-10002.81.5~7/RELEASE_ARM64_T6020 arm64
+-----------------------------------------------------------
+Server listening on 5201 (test #1)
+-----------------------------------------------------------
+Time: Mon, 10 Jun 2024 16:24:38 UTC
+Accepted connection from 10.193.123.80, port 63885
+      Cookie: g7two7w75cd3osoyvpamchujownmnocfquo6
+      Target Bitrate: 10000000
+[  5] local 10.195.156.118 port 5201 connected to 10.193.123.80 port 61480
+Starting Test: protocol: UDP, 1 streams, 1448 byte blocks, omitting 0 seconds, 30 second test, tos 0
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-1.01   sec  1.09 MBytes  9.09 Mbits/sec  0.960 ms  0/789 (0%)  
+[  5]   1.01-2.00   sec  1.27 MBytes  10.7 Mbits/sec  1.236 ms  0/922 (0%)  
+[  5]   2.00-3.00   sec  1.20 MBytes  10.1 Mbits/sec  0.699 ms  0/870 (0%)  
+[  5]   3.00-4.00   sec  1.19 MBytes  9.97 Mbits/sec  1.174 ms  0/861 (0%)  
+[  5]   4.00-5.00   sec  1.20 MBytes  10.0 Mbits/sec  0.761 ms  0/866 (0%)  
+[  5]   5.00-6.00   sec  1.19 MBytes  10.0 Mbits/sec  1.019 ms  0/864 (0%)  
+[  5]   6.00-7.00   sec  1.19 MBytes  9.97 Mbits/sec  1.489 ms  0/861 (0%)  
+[  5]   7.00-8.00   sec  1.19 MBytes  10.0 Mbits/sec  1.148 ms  0/865 (0%)  
+[  5]   8.00-9.00   sec  1.18 MBytes  9.92 Mbits/sec  0.969 ms  0/857 (0%)  
+[  5]   9.00-10.00  sec  1018 KBytes  8.31 Mbits/sec  1.568 ms  0/721 (0%)  
+[  5]  10.00-11.00  sec  1.39 MBytes  11.7 Mbits/sec  1.080 ms  0/1003 (0%)  
+[  5]  11.00-12.00  sec  1.18 MBytes  9.88 Mbits/sec  1.373 ms  18/870 (2.1%)  
+[  5]  12.00-13.00  sec  1.19 MBytes  10.0 Mbits/sec  1.092 ms  2/866 (0.23%)  
+[  5]  13.00-14.00  sec  1.19 MBytes  9.99 Mbits/sec  0.879 ms  0/862 (0%)  
+[  5]  14.00-15.00  sec  1.19 MBytes  9.98 Mbits/sec  1.256 ms  0/863 (0%)  
+[  5]  15.00-16.00  sec  1.19 MBytes  10.0 Mbits/sec  1.090 ms  0/864 (0%)  
+[  5]  16.00-17.00  sec  1.19 MBytes  10.0 Mbits/sec  1.330 ms  0/863 (0%)  
+[  5]  17.00-18.00  sec  1.19 MBytes  10.0 Mbits/sec  0.795 ms  0/863 (0%)  
+[  5]  18.00-19.00  sec  1.19 MBytes  9.98 Mbits/sec  0.980 ms  0/862 (0%)  
+[  5]  19.00-20.00  sec  1.17 MBytes  9.78 Mbits/sec  1.051 ms  0/848 (0%)  
+[  5]  20.00-21.00  sec  1.21 MBytes  10.2 Mbits/sec  1.190 ms  0/878 (0%)  
+[  5]  21.00-22.00  sec  1.19 MBytes  10.0 Mbits/sec  1.215 ms  0/865 (0%)  
+[  5]  22.00-23.00  sec  1.19 MBytes  9.98 Mbits/sec  1.030 ms  0/861 (0%)  
+[  5]  23.00-24.00  sec  1.19 MBytes  9.99 Mbits/sec  0.977 ms  0/863 (0%)  
+[  5]  24.00-25.00  sec  1.20 MBytes  10.0 Mbits/sec  1.232 ms  0/866 (0%)  
+[  5]  25.00-26.00  sec  1.19 MBytes  9.96 Mbits/sec  1.214 ms  0/860 (0%)  
+[  5]  26.00-27.00  sec  1.20 MBytes  10.0 Mbits/sec  0.816 ms  0/867 (0%)  
+[  5]  27.00-28.00  sec  1.19 MBytes  9.99 Mbits/sec  1.113 ms  0/863 (0%)  
+[  5]  28.00-29.00  sec  1.05 MBytes  8.82 Mbits/sec  1.645 ms  0/762 (0%)  
+[  5]  29.00-30.00  sec  1.30 MBytes  10.9 Mbits/sec  1.261 ms  4/947 (0.42%)  
+[  5]  30.00-30.02  sec  32.5 KBytes  14.6 Mbits/sec  1.253 ms  0/23 (0%)  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+Test Complete. Summary Results:
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5] (sender statistics not available)
+[SUM]  0.0-30.0 sec  10 datagrams received out-of-order
+[  5]   0.00-30.02  sec  35.7 MBytes  9.98 Mbits/sec  1.253 ms  24/25895 (0.093%)  receiver

@@ -1,0 +1,2019 @@
+[
+    {
+        "frame": 0,
+        "frame_size": "22.887 KB",
+        "client_send_start_time": 1718042191.078839,
+        "server_recv_start_time": 1718042191.215018,
+        "server_recv_end_time": 1718042191.222825,
+        "server_recv_duration": 0.007807016372680664,
+        "network_duration": "143.9860 ms",
+        "bandwidth": "1.2716 Mbps"
+    },
+    {
+        "frame": 1,
+        "frame_size": "2.424 KB",
+        "client_send_start_time": 1718042191.145065,
+        "server_recv_start_time": 1718042191.2552588,
+        "server_recv_end_time": 1718042191.255265,
+        "server_recv_duration": 6.198883056640625e-06,
+        "network_duration": "110.1999 ms",
+        "bandwidth": "0.1760 Mbps"
+    },
+    {
+        "frame": 2,
+        "frame_size": "1.892 KB",
+        "client_send_start_time": 1718042191.207299,
+        "server_recv_start_time": 1718042191.295182,
+        "server_recv_end_time": 1718042191.2952268,
+        "server_recv_duration": 4.482269287109375e-05,
+        "network_duration": "87.9278 ms",
+        "bandwidth": "0.1721 Mbps"
+    },
+    {
+        "frame": 3,
+        "frame_size": "1.707 KB",
+        "client_send_start_time": 1718042191.266631,
+        "server_recv_start_time": 1718042191.390058,
+        "server_recv_end_time": 1718042191.3901079,
+        "server_recv_duration": 4.982948303222656e-05,
+        "network_duration": "123.4770 ms",
+        "bandwidth": "0.1106 Mbps"
+    },
+    {
+        "frame": 4,
+        "frame_size": "1.638 KB",
+        "client_send_start_time": 1718042191.326726,
+        "server_recv_start_time": 1718042191.420175,
+        "server_recv_end_time": 1718042191.420179,
+        "server_recv_duration": 3.814697265625e-06,
+        "network_duration": "93.4529 ms",
+        "bandwidth": "0.1402 Mbps"
+    },
+    {
+        "frame": 5,
+        "frame_size": "1.724 KB",
+        "client_send_start_time": 1718042191.385891,
+        "server_recv_start_time": 1718042191.453175,
+        "server_recv_end_time": 1718042191.4532218,
+        "server_recv_duration": 4.673004150390625e-05,
+        "network_duration": "67.3308 ms",
+        "bandwidth": "0.2048 Mbps"
+    },
+    {
+        "frame": 6,
+        "frame_size": "1.832 KB",
+        "client_send_start_time": 1718042191.446562,
+        "server_recv_start_time": 1718042191.5762959,
+        "server_recv_end_time": 1718042191.576299,
+        "server_recv_duration": 3.0994415283203125e-06,
+        "network_duration": "129.7369 ms",
+        "bandwidth": "0.1130 Mbps"
+    },
+    {
+        "frame": 7,
+        "frame_size": "1.673 KB",
+        "client_send_start_time": 1718042191.506498,
+        "server_recv_start_time": 1718042191.605242,
+        "server_recv_end_time": 1718042191.605252,
+        "server_recv_duration": 1.0013580322265625e-05,
+        "network_duration": "98.7539 ms",
+        "bandwidth": "0.1355 Mbps"
+    },
+    {
+        "frame": 8,
+        "frame_size": "1.746 KB",
+        "client_send_start_time": 1718042191.5651221,
+        "server_recv_start_time": 1718042191.636508,
+        "server_recv_end_time": 1718042191.636548,
+        "server_recv_duration": 4.00543212890625e-05,
+        "network_duration": "71.4259 ms",
+        "bandwidth": "0.1956 Mbps"
+    },
+    {
+        "frame": 9,
+        "frame_size": "0.669 KB",
+        "client_send_start_time": 1718042191.622815,
+        "server_recv_start_time": 1718042191.745041,
+        "server_recv_end_time": 1718042191.745048,
+        "server_recv_duration": 7.152557373046875e-06,
+        "network_duration": "122.2332 ms",
+        "bandwidth": "0.0438 Mbps"
+    },
+    {
+        "frame": 10,
+        "frame_size": "1.148 KB",
+        "client_send_start_time": 1718042191.6807702,
+        "server_recv_start_time": 1718042191.7742221,
+        "server_recv_end_time": 1718042191.774227,
+        "server_recv_duration": 4.76837158203125e-06,
+        "network_duration": "93.4567 ms",
+        "bandwidth": "0.0983 Mbps"
+    },
+    {
+        "frame": 11,
+        "frame_size": "1.762 KB",
+        "client_send_start_time": 1718042191.7387898,
+        "server_recv_start_time": 1718042191.815006,
+        "server_recv_end_time": 1718042191.8150442,
+        "server_recv_duration": 3.814697265625e-05,
+        "network_duration": "76.2544 ms",
+        "bandwidth": "0.1849 Mbps"
+    },
+    {
+        "frame": 12,
+        "frame_size": "1.419 KB",
+        "client_send_start_time": 1718042191.796438,
+        "server_recv_start_time": 1718042191.922349,
+        "server_recv_end_time": 1718042191.9223528,
+        "server_recv_duration": 3.814697265625e-06,
+        "network_duration": "125.9148 ms",
+        "bandwidth": "0.0902 Mbps"
+    },
+    {
+        "frame": 13,
+        "frame_size": "1.531 KB",
+        "client_send_start_time": 1718042191.8538182,
+        "server_recv_start_time": 1718042191.9539762,
+        "server_recv_end_time": 1718042191.9539819,
+        "server_recv_duration": 5.7220458984375e-06,
+        "network_duration": "100.1637 ms",
+        "bandwidth": "0.1223 Mbps"
+    },
+    {
+        "frame": 14,
+        "frame_size": "1.082 KB",
+        "client_send_start_time": 1718042191.911871,
+        "server_recv_start_time": 1718042191.994246,
+        "server_recv_end_time": 1718042191.994251,
+        "server_recv_duration": 5.0067901611328125e-06,
+        "network_duration": "82.3801 ms",
+        "bandwidth": "0.1051 Mbps"
+    },
+    {
+        "frame": 15,
+        "frame_size": "1.537 KB",
+        "client_send_start_time": 1718042191.971905,
+        "server_recv_start_time": 1718042192.110999,
+        "server_recv_end_time": 1718042192.1110048,
+        "server_recv_duration": 5.7220458984375e-06,
+        "network_duration": "139.0998 ms",
+        "bandwidth": "0.0884 Mbps"
+    },
+    {
+        "frame": 16,
+        "frame_size": "1.135 KB",
+        "client_send_start_time": 1718042192.0307698,
+        "server_recv_start_time": 1718042192.142902,
+        "server_recv_end_time": 1718042192.1429079,
+        "server_recv_duration": 5.9604644775390625e-06,
+        "network_duration": "112.1380 ms",
+        "bandwidth": "0.0810 Mbps"
+    },
+    {
+        "frame": 17,
+        "frame_size": "1.246 KB",
+        "client_send_start_time": 1718042192.089196,
+        "server_recv_start_time": 1718042192.1835241,
+        "server_recv_end_time": 1718042192.183527,
+        "server_recv_duration": 2.86102294921875e-06,
+        "network_duration": "94.3310 ms",
+        "bandwidth": "0.1057 Mbps"
+    },
+    {
+        "frame": 18,
+        "frame_size": "1.829 KB",
+        "client_send_start_time": 1718042192.149317,
+        "server_recv_start_time": 1718042192.214923,
+        "server_recv_end_time": 1718042192.2149508,
+        "server_recv_duration": 2.7894973754882812e-05,
+        "network_duration": "65.6338 ms",
+        "bandwidth": "0.2229 Mbps"
+    },
+    {
+        "frame": 19,
+        "frame_size": "1.482 KB",
+        "client_send_start_time": 1718042192.2087839,
+        "server_recv_start_time": 1718042192.2443562,
+        "server_recv_end_time": 1718042192.2443619,
+        "server_recv_duration": 5.7220458984375e-06,
+        "network_duration": "35.5780 ms",
+        "bandwidth": "0.3332 Mbps"
+    },
+    {
+        "frame": 20,
+        "frame_size": "1.539 KB",
+        "client_send_start_time": 1718042192.268021,
+        "server_recv_start_time": 1718042192.2772322,
+        "server_recv_end_time": 1718042192.2772381,
+        "server_recv_duration": 5.9604644775390625e-06,
+        "network_duration": "9.2170 ms",
+        "bandwidth": "1.3358 Mbps"
+    },
+    {
+        "frame": 21,
+        "frame_size": "1.158 KB",
+        "client_send_start_time": 1718042192.3275561,
+        "server_recv_start_time": 1718042192.3505878,
+        "server_recv_end_time": 1718042192.3505971,
+        "server_recv_duration": 9.298324584960938e-06,
+        "network_duration": "23.0410 ms",
+        "bandwidth": "0.4021 Mbps"
+    },
+    {
+        "frame": 22,
+        "frame_size": "1.37 KB",
+        "client_send_start_time": 1718042192.387563,
+        "server_recv_start_time": 1718042192.406108,
+        "server_recv_end_time": 1718042192.406118,
+        "server_recv_duration": 1.0013580322265625e-05,
+        "network_duration": "18.5549 ms",
+        "bandwidth": "0.5907 Mbps"
+    },
+    {
+        "frame": 23,
+        "frame_size": "1.334 KB",
+        "client_send_start_time": 1718042192.4464068,
+        "server_recv_start_time": 1718042192.526526,
+        "server_recv_end_time": 1718042192.5265331,
+        "server_recv_duration": 7.152557373046875e-06,
+        "network_duration": "80.1263 ms",
+        "bandwidth": "0.1332 Mbps"
+    },
+    {
+        "frame": 24,
+        "frame_size": "1.649 KB",
+        "client_send_start_time": 1718042192.505794,
+        "server_recv_start_time": 1718042192.563596,
+        "server_recv_end_time": 1718042192.563642,
+        "server_recv_duration": 4.601478576660156e-05,
+        "network_duration": "57.8480 ms",
+        "bandwidth": "0.2280 Mbps"
+    },
+    {
+        "frame": 25,
+        "frame_size": "1.683 KB",
+        "client_send_start_time": 1718042192.563875,
+        "server_recv_start_time": 1718042192.596488,
+        "server_recv_end_time": 1718042192.596493,
+        "server_recv_duration": 5.0067901611328125e-06,
+        "network_duration": "32.6180 ms",
+        "bandwidth": "0.4128 Mbps"
+    },
+    {
+        "frame": 26,
+        "frame_size": "1.008 KB",
+        "client_send_start_time": 1718042192.621439,
+        "server_recv_start_time": 1718042192.6348019,
+        "server_recv_end_time": 1718042192.6348102,
+        "server_recv_duration": 8.344650268554688e-06,
+        "network_duration": "13.3712 ms",
+        "bandwidth": "0.6031 Mbps"
+    },
+    {
+        "frame": 27,
+        "frame_size": "1.304 KB",
+        "client_send_start_time": 1718042192.679198,
+        "server_recv_start_time": 1718042192.698451,
+        "server_recv_end_time": 1718042192.698463,
+        "server_recv_duration": 1.1920928955078125e-05,
+        "network_duration": "19.2649 ms",
+        "bandwidth": "0.5415 Mbps"
+    },
+    {
+        "frame": 28,
+        "frame_size": "0.597 KB",
+        "client_send_start_time": 1718042192.736819,
+        "server_recv_start_time": 1718042192.7564669,
+        "server_recv_end_time": 1718042192.756474,
+        "server_recv_duration": 7.152557373046875e-06,
+        "network_duration": "19.6550 ms",
+        "bandwidth": "0.2430 Mbps"
+    },
+    {
+        "frame": 29,
+        "frame_size": "1.333 KB",
+        "client_send_start_time": 1718042192.79487,
+        "server_recv_start_time": 1718042192.8165,
+        "server_recv_end_time": 1718042192.8165061,
+        "server_recv_duration": 6.198883056640625e-06,
+        "network_duration": "21.6362 ms",
+        "bandwidth": "0.4929 Mbps"
+    },
+    {
+        "frame": 30,
+        "frame_size": "1.621 KB",
+        "client_send_start_time": 1718042192.8533618,
+        "server_recv_start_time": 1718042192.858921,
+        "server_recv_end_time": 1718042192.8589299,
+        "server_recv_duration": 8.821487426757812e-06,
+        "network_duration": "5.5680 ms",
+        "bandwidth": "2.3290 Mbps"
+    },
+    {
+        "frame": 31,
+        "frame_size": "1.564 KB",
+        "client_send_start_time": 1718042192.911155,
+        "server_recv_start_time": 1718042192.916648,
+        "server_recv_end_time": 1718042192.916655,
+        "server_recv_duration": 7.152557373046875e-06,
+        "network_duration": "5.5001 ms",
+        "bandwidth": "2.2749 Mbps"
+    },
+    {
+        "frame": 32,
+        "frame_size": "1.357 KB",
+        "client_send_start_time": 1718042192.9695208,
+        "server_recv_start_time": 1718042192.985386,
+        "server_recv_end_time": 1718042192.9854012,
+        "server_recv_duration": 1.52587890625e-05,
+        "network_duration": "15.8803 ms",
+        "bandwidth": "0.6836 Mbps"
+    },
+    {
+        "frame": 33,
+        "frame_size": "1.532 KB",
+        "client_send_start_time": 1718042193.029305,
+        "server_recv_start_time": 1718042193.035188,
+        "server_recv_end_time": 1718042193.0351949,
+        "server_recv_duration": 6.9141387939453125e-06,
+        "network_duration": "5.8899 ms",
+        "bandwidth": "2.0809 Mbps"
+    },
+    {
+        "frame": 34,
+        "frame_size": "1.527 KB",
+        "client_send_start_time": 1718042193.0896618,
+        "server_recv_start_time": 1718042193.0937479,
+        "server_recv_end_time": 1718042193.093768,
+        "server_recv_duration": 2.002716064453125e-05,
+        "network_duration": "4.1060 ms",
+        "bandwidth": "2.9751 Mbps"
+    },
+    {
+        "frame": 35,
+        "frame_size": "1.475 KB",
+        "client_send_start_time": 1718042193.148473,
+        "server_recv_start_time": 1718042193.154133,
+        "server_recv_end_time": 1718042193.154142,
+        "server_recv_duration": 8.821487426757812e-06,
+        "network_duration": "5.6689 ms",
+        "bandwidth": "2.0815 Mbps"
+    },
+    {
+        "frame": 36,
+        "frame_size": "1.435 KB",
+        "client_send_start_time": 1718042193.207593,
+        "server_recv_start_time": 1718042193.2186828,
+        "server_recv_end_time": 1718042193.218691,
+        "server_recv_duration": 8.344650268554688e-06,
+        "network_duration": "11.0981 ms",
+        "bandwidth": "1.0344 Mbps"
+    },
+    {
+        "frame": 37,
+        "frame_size": "1.056 KB",
+        "client_send_start_time": 1718042193.266168,
+        "server_recv_start_time": 1718042193.27901,
+        "server_recv_end_time": 1718042193.27902,
+        "server_recv_duration": 1.0013580322265625e-05,
+        "network_duration": "12.8520 ms",
+        "bandwidth": "0.6573 Mbps"
+    },
+    {
+        "frame": 38,
+        "frame_size": "1.037 KB",
+        "client_send_start_time": 1718042193.324072,
+        "server_recv_start_time": 1718042193.340328,
+        "server_recv_end_time": 1718042193.340341,
+        "server_recv_duration": 1.3113021850585938e-05,
+        "network_duration": "16.2692 ms",
+        "bandwidth": "0.5099 Mbps"
+    },
+    {
+        "frame": 39,
+        "frame_size": "1.548 KB",
+        "client_send_start_time": 1718042193.382168,
+        "server_recv_start_time": 1718042193.389077,
+        "server_recv_end_time": 1718042193.3890839,
+        "server_recv_duration": 6.9141387939453125e-06,
+        "network_duration": "6.9158 ms",
+        "bandwidth": "1.7907 Mbps"
+    },
+    {
+        "frame": 40,
+        "frame_size": "1.069 KB",
+        "client_send_start_time": 1718042193.4396951,
+        "server_recv_start_time": 1718042193.456094,
+        "server_recv_end_time": 1718042193.456106,
+        "server_recv_duration": 1.1920928955078125e-05,
+        "network_duration": "16.4108 ms",
+        "bandwidth": "0.5211 Mbps"
+    },
+    {
+        "frame": 41,
+        "frame_size": "1.314 KB",
+        "client_send_start_time": 1718042193.497343,
+        "server_recv_start_time": 1718042193.5105221,
+        "server_recv_end_time": 1718042193.510527,
+        "server_recv_duration": 4.76837158203125e-06,
+        "network_duration": "13.1838 ms",
+        "bandwidth": "0.7973 Mbps"
+    },
+    {
+        "frame": 42,
+        "frame_size": "1.222 KB",
+        "client_send_start_time": 1718042193.555562,
+        "server_recv_start_time": 1718042193.5666502,
+        "server_recv_end_time": 1718042193.566657,
+        "server_recv_duration": 6.9141387939453125e-06,
+        "network_duration": "11.0950 ms",
+        "bandwidth": "0.8811 Mbps"
+    },
+    {
+        "frame": 43,
+        "frame_size": "1.705 KB",
+        "client_send_start_time": 1718042193.613101,
+        "server_recv_start_time": 1718042193.619413,
+        "server_recv_end_time": 1718042193.6194181,
+        "server_recv_duration": 5.245208740234375e-06,
+        "network_duration": "6.3171 ms",
+        "bandwidth": "2.1592 Mbps"
+    },
+    {
+        "frame": 44,
+        "frame_size": "1.281 KB",
+        "client_send_start_time": 1718042193.672224,
+        "server_recv_start_time": 1718042193.687521,
+        "server_recv_end_time": 1718042193.687526,
+        "server_recv_duration": 5.0067901611328125e-06,
+        "network_duration": "15.3019 ms",
+        "bandwidth": "0.6697 Mbps"
+    },
+    {
+        "frame": 45,
+        "frame_size": "1.327 KB",
+        "client_send_start_time": 1718042193.732857,
+        "server_recv_start_time": 1718042193.749414,
+        "server_recv_end_time": 1718042193.7494211,
+        "server_recv_duration": 7.152557373046875e-06,
+        "network_duration": "16.5641 ms",
+        "bandwidth": "0.6409 Mbps"
+    },
+    {
+        "frame": 46,
+        "frame_size": "1.929 KB",
+        "client_send_start_time": 1718042193.79654,
+        "server_recv_start_time": 1718042193.8036742,
+        "server_recv_end_time": 1718042193.80368,
+        "server_recv_duration": 5.7220458984375e-06,
+        "network_duration": "7.1399 ms",
+        "bandwidth": "2.1614 Mbps"
+    },
+    {
+        "frame": 47,
+        "frame_size": "1.068 KB",
+        "client_send_start_time": 1718042193.868478,
+        "server_recv_start_time": 1718042193.881291,
+        "server_recv_end_time": 1718042193.881296,
+        "server_recv_duration": 5.0067901611328125e-06,
+        "network_duration": "12.8179 ms",
+        "bandwidth": "0.6666 Mbps"
+    },
+    {
+        "frame": 48,
+        "frame_size": "1.84 KB",
+        "client_send_start_time": 1718042193.9304671,
+        "server_recv_start_time": 1718042193.934569,
+        "server_recv_end_time": 1718042193.934575,
+        "server_recv_duration": 6.198883056640625e-06,
+        "network_duration": "4.1080 ms",
+        "bandwidth": "3.5833 Mbps"
+    },
+    {
+        "frame": 49,
+        "frame_size": "1.412 KB",
+        "client_send_start_time": 1718042193.988773,
+        "server_recv_start_time": 1718042194.0012999,
+        "server_recv_end_time": 1718042194.001308,
+        "server_recv_duration": 8.106231689453125e-06,
+        "network_duration": "12.5349 ms",
+        "bandwidth": "0.9012 Mbps"
+    },
+    {
+        "frame": 50,
+        "frame_size": "1.833 KB",
+        "client_send_start_time": 1718042194.047913,
+        "server_recv_start_time": 1718042194.057736,
+        "server_recv_end_time": 1718042194.0577412,
+        "server_recv_duration": 5.245208740234375e-06,
+        "network_duration": "9.8281 ms",
+        "bandwidth": "1.4920 Mbps"
+    },
+    {
+        "frame": 51,
+        "frame_size": "1.428 KB",
+        "client_send_start_time": 1718042194.106647,
+        "server_recv_start_time": 1718042194.121611,
+        "server_recv_end_time": 1718042194.121618,
+        "server_recv_duration": 6.9141387939453125e-06,
+        "network_duration": "14.9710 ms",
+        "bandwidth": "0.7631 Mbps"
+    },
+    {
+        "frame": 52,
+        "frame_size": "1.55 KB",
+        "client_send_start_time": 1718042194.16519,
+        "server_recv_start_time": 1718042194.17059,
+        "server_recv_end_time": 1718042194.170603,
+        "server_recv_duration": 1.3113021850585938e-05,
+        "network_duration": "5.4131 ms",
+        "bandwidth": "2.2908 Mbps"
+    },
+    {
+        "frame": 53,
+        "frame_size": "1.889 KB",
+        "client_send_start_time": 1718042194.223051,
+        "server_recv_start_time": 1718042194.2321532,
+        "server_recv_end_time": 1718042194.232159,
+        "server_recv_duration": 5.7220458984375e-06,
+        "network_duration": "9.1078 ms",
+        "bandwidth": "1.6592 Mbps"
+    },
+    {
+        "frame": 54,
+        "frame_size": "0.863 KB",
+        "client_send_start_time": 1718042194.280736,
+        "server_recv_start_time": 1718042194.2949739,
+        "server_recv_end_time": 1718042194.294982,
+        "server_recv_duration": 8.106231689453125e-06,
+        "network_duration": "14.2460 ms",
+        "bandwidth": "0.4846 Mbps"
+    },
+    {
+        "frame": 55,
+        "frame_size": "1.661 KB",
+        "client_send_start_time": 1718042194.338557,
+        "server_recv_start_time": 1718042194.348057,
+        "server_recv_end_time": 1718042194.348063,
+        "server_recv_duration": 5.9604644775390625e-06,
+        "network_duration": "9.5060 ms",
+        "bandwidth": "1.3979 Mbps"
+    },
+    {
+        "frame": 56,
+        "frame_size": "1.004 KB",
+        "client_send_start_time": 1718042194.3972108,
+        "server_recv_start_time": 1718042194.4151611,
+        "server_recv_end_time": 1718042194.415168,
+        "server_recv_duration": 6.9141387939453125e-06,
+        "network_duration": "17.9572 ms",
+        "bandwidth": "0.4473 Mbps"
+    },
+    {
+        "frame": 57,
+        "frame_size": "1.652 KB",
+        "client_send_start_time": 1718042194.4611,
+        "server_recv_start_time": 1718042194.468728,
+        "server_recv_end_time": 1718042194.4687412,
+        "server_recv_duration": 1.3113021850585938e-05,
+        "network_duration": "7.6411 ms",
+        "bandwidth": "1.7296 Mbps"
+    },
+    {
+        "frame": 58,
+        "frame_size": "1.262 KB",
+        "client_send_start_time": 1718042194.523959,
+        "server_recv_start_time": 1718042194.53909,
+        "server_recv_end_time": 1718042194.53911,
+        "server_recv_duration": 2.002716064453125e-05,
+        "network_duration": "15.1510 ms",
+        "bandwidth": "0.6664 Mbps"
+    },
+    {
+        "frame": 59,
+        "frame_size": "1.155 KB",
+        "client_send_start_time": 1718042194.5851898,
+        "server_recv_start_time": 1718042194.597107,
+        "server_recv_end_time": 1718042194.597117,
+        "server_recv_duration": 1.0013580322265625e-05,
+        "network_duration": "11.9271 ms",
+        "bandwidth": "0.7747 Mbps"
+    },
+    {
+        "frame": 60,
+        "frame_size": "1.64 KB",
+        "client_send_start_time": 1718042194.642831,
+        "server_recv_start_time": 1718042194.6490529,
+        "server_recv_end_time": 1718042194.6490612,
+        "server_recv_duration": 8.344650268554688e-06,
+        "network_duration": "6.2301 ms",
+        "bandwidth": "2.1059 Mbps"
+    },
+    {
+        "frame": 61,
+        "frame_size": "0.704 KB",
+        "client_send_start_time": 1718042194.700351,
+        "server_recv_start_time": 1718042194.712395,
+        "server_recv_end_time": 1718042194.7124019,
+        "server_recv_duration": 6.9141387939453125e-06,
+        "network_duration": "12.0509 ms",
+        "bandwidth": "0.4674 Mbps"
+    },
+    {
+        "frame": 62,
+        "frame_size": "1.396 KB",
+        "client_send_start_time": 1718042194.758849,
+        "server_recv_start_time": 1718042194.770787,
+        "server_recv_end_time": 1718042194.770793,
+        "server_recv_duration": 5.9604644775390625e-06,
+        "network_duration": "11.9441 ms",
+        "bandwidth": "0.9350 Mbps"
+    },
+    {
+        "frame": 63,
+        "frame_size": "1.503 KB",
+        "client_send_start_time": 1718042194.8167412,
+        "server_recv_start_time": 1718042194.824298,
+        "server_recv_end_time": 1718042194.8243048,
+        "server_recv_duration": 6.9141387939453125e-06,
+        "network_duration": "7.5636 ms",
+        "bandwidth": "1.5897 Mbps"
+    },
+    {
+        "frame": 64,
+        "frame_size": "1.43 KB",
+        "client_send_start_time": 1718042194.8761642,
+        "server_recv_start_time": 1718042194.895776,
+        "server_recv_end_time": 1718042194.895786,
+        "server_recv_duration": 1.0013580322265625e-05,
+        "network_duration": "19.6218 ms",
+        "bandwidth": "0.5830 Mbps"
+    },
+    {
+        "frame": 65,
+        "frame_size": "1.96 KB",
+        "client_send_start_time": 1718042194.934056,
+        "server_recv_start_time": 1718042194.943058,
+        "server_recv_end_time": 1718042194.943064,
+        "server_recv_duration": 5.9604644775390625e-06,
+        "network_duration": "9.0079 ms",
+        "bandwidth": "1.7407 Mbps"
+    },
+    {
+        "frame": 66,
+        "frame_size": "0.285 KB",
+        "client_send_start_time": 1718042194.991671,
+        "server_recv_start_time": 1718042195.00494,
+        "server_recv_end_time": 1718042195.004946,
+        "server_recv_duration": 5.9604644775390625e-06,
+        "network_duration": "13.2749 ms",
+        "bandwidth": "0.1718 Mbps"
+    },
+    {
+        "frame": 67,
+        "frame_size": "1.375 KB",
+        "client_send_start_time": 1718042195.053154,
+        "server_recv_start_time": 1718042195.06596,
+        "server_recv_end_time": 1718042195.0659661,
+        "server_recv_duration": 6.198883056640625e-06,
+        "network_duration": "12.8121 ms",
+        "bandwidth": "0.8586 Mbps"
+    },
+    {
+        "frame": 68,
+        "frame_size": "1.483 KB",
+        "client_send_start_time": 1718042195.113174,
+        "server_recv_start_time": 1718042195.128711,
+        "server_recv_end_time": 1718042195.128726,
+        "server_recv_duration": 1.5020370483398438e-05,
+        "network_duration": "15.5520 ms",
+        "bandwidth": "0.7629 Mbps"
+    },
+    {
+        "frame": 69,
+        "frame_size": "1.244 KB",
+        "client_send_start_time": 1718042195.171479,
+        "server_recv_start_time": 1718042195.191405,
+        "server_recv_end_time": 1718042195.191415,
+        "server_recv_duration": 1.0013580322265625e-05,
+        "network_duration": "19.9361 ms",
+        "bandwidth": "0.4992 Mbps"
+    },
+    {
+        "frame": 70,
+        "frame_size": "1.367 KB",
+        "client_send_start_time": 1718042195.230268,
+        "server_recv_start_time": 1718042195.243252,
+        "server_recv_end_time": 1718042195.243257,
+        "server_recv_duration": 5.0067901611328125e-06,
+        "network_duration": "12.9890 ms",
+        "bandwidth": "0.8419 Mbps"
+    },
+    {
+        "frame": 71,
+        "frame_size": "1.697 KB",
+        "client_send_start_time": 1718042195.2910469,
+        "server_recv_start_time": 1718042195.297832,
+        "server_recv_end_time": 1718042195.2978392,
+        "server_recv_duration": 7.152557373046875e-06,
+        "network_duration": "6.7923 ms",
+        "bandwidth": "1.9987 Mbps"
+    },
+    {
+        "frame": 72,
+        "frame_size": "1.536 KB",
+        "client_send_start_time": 1718042195.351948,
+        "server_recv_start_time": 1718042195.359424,
+        "server_recv_end_time": 1718042195.359434,
+        "server_recv_duration": 9.775161743164062e-06,
+        "network_duration": "7.4859 ms",
+        "bandwidth": "1.6415 Mbps"
+    },
+    {
+        "frame": 73,
+        "frame_size": "1.431 KB",
+        "client_send_start_time": 1718042195.411495,
+        "server_recv_start_time": 1718042195.4220219,
+        "server_recv_end_time": 1718042195.422026,
+        "server_recv_duration": 4.0531158447265625e-06,
+        "network_duration": "10.5309 ms",
+        "bandwidth": "1.0871 Mbps"
+    },
+    {
+        "frame": 74,
+        "frame_size": "1.501 KB",
+        "client_send_start_time": 1718042195.469876,
+        "server_recv_start_time": 1718042195.478305,
+        "server_recv_end_time": 1718042195.4783108,
+        "server_recv_duration": 5.7220458984375e-06,
+        "network_duration": "8.4348 ms",
+        "bandwidth": "1.4236 Mbps"
+    },
+    {
+        "frame": 75,
+        "frame_size": "1.419 KB",
+        "client_send_start_time": 1718042195.5300732,
+        "server_recv_start_time": 1718042195.5423858,
+        "server_recv_end_time": 1718042195.542392,
+        "server_recv_duration": 6.198883056640625e-06,
+        "network_duration": "12.3188 ms",
+        "bandwidth": "0.9215 Mbps"
+    },
+    {
+        "frame": 76,
+        "frame_size": "1.376 KB",
+        "client_send_start_time": 1718042195.5888798,
+        "server_recv_start_time": 1718042195.604256,
+        "server_recv_end_time": 1718042195.6042628,
+        "server_recv_duration": 6.9141387939453125e-06,
+        "network_duration": "15.3830 ms",
+        "bandwidth": "0.7156 Mbps"
+    },
+    {
+        "frame": 77,
+        "frame_size": "1.676 KB",
+        "client_send_start_time": 1718042195.6480289,
+        "server_recv_start_time": 1718042195.651636,
+        "server_recv_end_time": 1718042195.6516411,
+        "server_recv_duration": 5.245208740234375e-06,
+        "network_duration": "3.6123 ms",
+        "bandwidth": "3.7118 Mbps"
+    },
+    {
+        "frame": 78,
+        "frame_size": "1.891 KB",
+        "client_send_start_time": 1718042195.7078102,
+        "server_recv_start_time": 1718042195.728506,
+        "server_recv_end_time": 1718042195.7285178,
+        "server_recv_duration": 1.1682510375976562e-05,
+        "network_duration": "20.7076 ms",
+        "bandwidth": "0.7306 Mbps"
+    },
+    {
+        "frame": 79,
+        "frame_size": "1.647 KB",
+        "client_send_start_time": 1718042195.767968,
+        "server_recv_start_time": 1718042195.7751548,
+        "server_recv_end_time": 1718042195.775161,
+        "server_recv_duration": 6.198883056640625e-06,
+        "network_duration": "7.1931 ms",
+        "bandwidth": "1.8318 Mbps"
+    },
+    {
+        "frame": 80,
+        "frame_size": "1.383 KB",
+        "client_send_start_time": 1718042195.827591,
+        "server_recv_start_time": 1718042195.8412778,
+        "server_recv_end_time": 1718042195.841283,
+        "server_recv_duration": 5.245208740234375e-06,
+        "network_duration": "13.6921 ms",
+        "bandwidth": "0.8081 Mbps"
+    },
+    {
+        "frame": 81,
+        "frame_size": "1.722 KB",
+        "client_send_start_time": 1718042195.887041,
+        "server_recv_start_time": 1718042195.8921878,
+        "server_recv_end_time": 1718042195.892193,
+        "server_recv_duration": 5.245208740234375e-06,
+        "network_duration": "5.1520 ms",
+        "bandwidth": "2.6739 Mbps"
+    },
+    {
+        "frame": 82,
+        "frame_size": "1.197 KB",
+        "client_send_start_time": 1718042195.945488,
+        "server_recv_start_time": 1718042195.96204,
+        "server_recv_end_time": 1718042195.9620469,
+        "server_recv_duration": 6.9141387939453125e-06,
+        "network_duration": "16.5589 ms",
+        "bandwidth": "0.5783 Mbps"
+    },
+    {
+        "frame": 83,
+        "frame_size": "0.427 KB",
+        "client_send_start_time": 1718042196.0028381,
+        "server_recv_start_time": 1718042196.0132952,
+        "server_recv_end_time": 1718042196.013311,
+        "server_recv_duration": 1.5735626220703125e-05,
+        "network_duration": "10.4728 ms",
+        "bandwidth": "0.3262 Mbps"
+    },
+    {
+        "frame": 84,
+        "frame_size": "2.017 KB",
+        "client_send_start_time": 1718042196.0606048,
+        "server_recv_start_time": 1718042196.065742,
+        "server_recv_end_time": 1718042196.0657501,
+        "server_recv_duration": 8.106231689453125e-06,
+        "network_duration": "5.1453 ms",
+        "bandwidth": "3.1361 Mbps"
+    },
+    {
+        "frame": 85,
+        "frame_size": "0.675 KB",
+        "client_send_start_time": 1718042196.117996,
+        "server_recv_start_time": 1718042196.2278972,
+        "server_recv_end_time": 1718042196.227905,
+        "server_recv_duration": 7.867813110351562e-06,
+        "network_duration": "109.9091 ms",
+        "bandwidth": "0.0491 Mbps"
+    },
+    {
+        "frame": 86,
+        "frame_size": "0.772 KB",
+        "client_send_start_time": 1718042196.175939,
+        "server_recv_start_time": 1718042196.26651,
+        "server_recv_end_time": 1718042196.266515,
+        "server_recv_duration": 5.0067901611328125e-06,
+        "network_duration": "90.5759 ms",
+        "bandwidth": "0.0682 Mbps"
+    },
+    {
+        "frame": 87,
+        "frame_size": "1.424 KB",
+        "client_send_start_time": 1718042196.236476,
+        "server_recv_start_time": 1718042196.2974122,
+        "server_recv_end_time": 1718042196.297416,
+        "server_recv_duration": 3.814697265625e-06,
+        "network_duration": "60.9400 ms",
+        "bandwidth": "0.1869 Mbps"
+    },
+    {
+        "frame": 88,
+        "frame_size": "1.126 KB",
+        "client_send_start_time": 1718042196.29427,
+        "server_recv_start_time": 1718042196.452671,
+        "server_recv_end_time": 1718042196.452678,
+        "server_recv_duration": 6.9141387939453125e-06,
+        "network_duration": "158.4079 ms",
+        "bandwidth": "0.0569 Mbps"
+    },
+    {
+        "frame": 89,
+        "frame_size": "1.015 KB",
+        "client_send_start_time": 1718042196.353986,
+        "server_recv_start_time": 1718042196.492846,
+        "server_recv_end_time": 1718042196.4928498,
+        "server_recv_duration": 3.814697265625e-06,
+        "network_duration": "138.8638 ms",
+        "bandwidth": "0.0585 Mbps"
+    },
+    {
+        "frame": 90,
+        "frame_size": "1.369 KB",
+        "client_send_start_time": 1718042196.412809,
+        "server_recv_start_time": 1718042196.522667,
+        "server_recv_end_time": 1718042196.522673,
+        "server_recv_duration": 5.9604644775390625e-06,
+        "network_duration": "109.8640 ms",
+        "bandwidth": "0.0997 Mbps"
+    },
+    {
+        "frame": 91,
+        "frame_size": "1.609 KB",
+        "client_send_start_time": 1718042196.473234,
+        "server_recv_start_time": 1718042196.605392,
+        "server_recv_end_time": 1718042196.605397,
+        "server_recv_duration": 5.0067901611328125e-06,
+        "network_duration": "132.1630 ms",
+        "bandwidth": "0.0974 Mbps"
+    },
+    {
+        "frame": 92,
+        "frame_size": "0.524 KB",
+        "client_send_start_time": 1718042196.531254,
+        "server_recv_start_time": 1718042196.638361,
+        "server_recv_end_time": 1718042196.638367,
+        "server_recv_duration": 5.9604644775390625e-06,
+        "network_duration": "107.1129 ms",
+        "bandwidth": "0.0391 Mbps"
+    },
+    {
+        "frame": 93,
+        "frame_size": "1.263 KB",
+        "client_send_start_time": 1718042196.589673,
+        "server_recv_start_time": 1718042196.668753,
+        "server_recv_end_time": 1718042196.6687958,
+        "server_recv_duration": 4.291534423828125e-05,
+        "network_duration": "79.1228 ms",
+        "bandwidth": "0.1277 Mbps"
+    },
+    {
+        "frame": 94,
+        "frame_size": "1.077 KB",
+        "client_send_start_time": 1718042196.6489038,
+        "server_recv_start_time": 1718042196.78577,
+        "server_recv_end_time": 1718042196.7857761,
+        "server_recv_duration": 6.198883056640625e-06,
+        "network_duration": "136.8723 ms",
+        "bandwidth": "0.0629 Mbps"
+    },
+    {
+        "frame": 95,
+        "frame_size": "1.534 KB",
+        "client_send_start_time": 1718042196.7082949,
+        "server_recv_start_time": 1718042196.815427,
+        "server_recv_end_time": 1718042196.8154318,
+        "server_recv_duration": 4.76837158203125e-06,
+        "network_duration": "107.1370 ms",
+        "bandwidth": "0.1145 Mbps"
+    },
+    {
+        "frame": 96,
+        "frame_size": "1.598 KB",
+        "client_send_start_time": 1718042196.7672691,
+        "server_recv_start_time": 1718042196.84799,
+        "server_recv_end_time": 1718042196.848033,
+        "server_recv_duration": 4.291534423828125e-05,
+        "network_duration": "80.7638 ms",
+        "bandwidth": "0.1583 Mbps"
+    },
+    {
+        "frame": 97,
+        "frame_size": "1.395 KB",
+        "client_send_start_time": 1718042196.826543,
+        "server_recv_start_time": 1718042196.962828,
+        "server_recv_end_time": 1718042196.962833,
+        "server_recv_duration": 5.0067901611328125e-06,
+        "network_duration": "136.2898 ms",
+        "bandwidth": "0.0819 Mbps"
+    },
+    {
+        "frame": 98,
+        "frame_size": "1.381 KB",
+        "client_send_start_time": 1718042196.884755,
+        "server_recv_start_time": 1718042196.993994,
+        "server_recv_end_time": 1718042196.993999,
+        "server_recv_duration": 5.0067901611328125e-06,
+        "network_duration": "109.2441 ms",
+        "bandwidth": "0.1011 Mbps"
+    },
+    {
+        "frame": 99,
+        "frame_size": "1.283 KB",
+        "client_send_start_time": 1718042196.9421399,
+        "server_recv_start_time": 1718042197.02586,
+        "server_recv_end_time": 1718042197.025865,
+        "server_recv_duration": 5.0067901611328125e-06,
+        "network_duration": "83.7252 ms",
+        "bandwidth": "0.1226 Mbps"
+    },
+    {
+        "frame": 100,
+        "frame_size": "1.471 KB",
+        "client_send_start_time": 1718042197.002395,
+        "server_recv_start_time": 1718042197.141002,
+        "server_recv_end_time": 1718042197.141008,
+        "server_recv_duration": 5.9604644775390625e-06,
+        "network_duration": "138.6130 ms",
+        "bandwidth": "0.0849 Mbps"
+    },
+    {
+        "frame": 101,
+        "frame_size": "1.377 KB",
+        "client_send_start_time": 1718042197.0602088,
+        "server_recv_start_time": 1718042197.1723258,
+        "server_recv_end_time": 1718042197.172331,
+        "server_recv_duration": 5.245208740234375e-06,
+        "network_duration": "112.1223 ms",
+        "bandwidth": "0.0982 Mbps"
+    },
+    {
+        "frame": 102,
+        "frame_size": "0.419 KB",
+        "client_send_start_time": 1718042197.117558,
+        "server_recv_start_time": 1718042197.203029,
+        "server_recv_end_time": 1718042197.203032,
+        "server_recv_duration": 3.0994415283203125e-06,
+        "network_duration": "85.4740 ms",
+        "bandwidth": "0.0392 Mbps"
+    },
+    {
+        "frame": 103,
+        "frame_size": "0.888 KB",
+        "client_send_start_time": 1718042197.1760662,
+        "server_recv_start_time": 1718042197.280125,
+        "server_recv_end_time": 1718042197.280132,
+        "server_recv_duration": 7.152557373046875e-06,
+        "network_duration": "104.0659 ms",
+        "bandwidth": "0.0683 Mbps"
+    },
+    {
+        "frame": 104,
+        "frame_size": "1.579 KB",
+        "client_send_start_time": 1718042197.234118,
+        "server_recv_start_time": 1718042197.309657,
+        "server_recv_end_time": 1718042197.3096619,
+        "server_recv_duration": 4.76837158203125e-06,
+        "network_duration": "75.5439 ms",
+        "bandwidth": "0.1672 Mbps"
+    },
+    {
+        "frame": 105,
+        "frame_size": "1.827 KB",
+        "client_send_start_time": 1718042197.294422,
+        "server_recv_start_time": 1718042197.3416991,
+        "server_recv_end_time": 1718042197.341723,
+        "server_recv_duration": 2.384185791015625e-05,
+        "network_duration": "47.3011 ms",
+        "bandwidth": "0.3090 Mbps"
+    },
+    {
+        "frame": 106,
+        "frame_size": "1.609 KB",
+        "client_send_start_time": 1718042197.352415,
+        "server_recv_start_time": 1718042197.460453,
+        "server_recv_end_time": 1718042197.460458,
+        "server_recv_duration": 5.0067901611328125e-06,
+        "network_duration": "108.0430 ms",
+        "bandwidth": "0.1191 Mbps"
+    },
+    {
+        "frame": 107,
+        "frame_size": "0.967 KB",
+        "client_send_start_time": 1718042197.410969,
+        "server_recv_start_time": 1718042197.490241,
+        "server_recv_end_time": 1718042197.490245,
+        "server_recv_duration": 4.0531158447265625e-06,
+        "network_duration": "79.2761 ms",
+        "bandwidth": "0.0976 Mbps"
+    },
+    {
+        "frame": 108,
+        "frame_size": "0.763 KB",
+        "client_send_start_time": 1718042197.470866,
+        "server_recv_start_time": 1718042197.522249,
+        "server_recv_end_time": 1718042197.522253,
+        "server_recv_duration": 4.0531158447265625e-06,
+        "network_duration": "51.3871 ms",
+        "bandwidth": "0.1188 Mbps"
+    },
+    {
+        "frame": 109,
+        "frame_size": "1.595 KB",
+        "client_send_start_time": 1718042197.530543,
+        "server_recv_start_time": 1718042197.591263,
+        "server_recv_end_time": 1718042197.591268,
+        "server_recv_duration": 5.0067901611328125e-06,
+        "network_duration": "60.7250 ms",
+        "bandwidth": "0.2101 Mbps"
+    },
+    {
+        "frame": 110,
+        "frame_size": "1.21 KB",
+        "client_send_start_time": 1718042197.5888882,
+        "server_recv_start_time": 1718042197.6218612,
+        "server_recv_end_time": 1718042197.621866,
+        "server_recv_duration": 4.76837158203125e-06,
+        "network_duration": "32.9778 ms",
+        "bandwidth": "0.2935 Mbps"
+    },
+    {
+        "frame": 111,
+        "frame_size": "1.97 KB",
+        "client_send_start_time": 1718042197.648535,
+        "server_recv_start_time": 1718042197.6545868,
+        "server_recv_end_time": 1718042197.654592,
+        "server_recv_duration": 5.245208740234375e-06,
+        "network_duration": "6.0570 ms",
+        "bandwidth": "2.6019 Mbps"
+    },
+    {
+        "frame": 112,
+        "frame_size": "1.616 KB",
+        "client_send_start_time": 1718042197.70771,
+        "server_recv_start_time": 1718042197.7946339,
+        "server_recv_end_time": 1718042197.794637,
+        "server_recv_duration": 3.0994415283203125e-06,
+        "network_duration": "86.9269 ms",
+        "bandwidth": "0.1487 Mbps"
+    },
+    {
+        "frame": 113,
+        "frame_size": "2.047 KB",
+        "client_send_start_time": 1718042197.766643,
+        "server_recv_start_time": 1718042197.8270888,
+        "server_recv_end_time": 1718042197.827094,
+        "server_recv_duration": 5.245208740234375e-06,
+        "network_duration": "60.4510 ms",
+        "bandwidth": "0.2709 Mbps"
+    },
+    {
+        "frame": 114,
+        "frame_size": "1.687 KB",
+        "client_send_start_time": 1718042197.82578,
+        "server_recv_start_time": 1718042197.86127,
+        "server_recv_end_time": 1718042197.861276,
+        "server_recv_duration": 5.9604644775390625e-06,
+        "network_duration": "35.4960 ms",
+        "bandwidth": "0.3802 Mbps"
+    },
+    {
+        "frame": 115,
+        "frame_size": "0.532 KB",
+        "client_send_start_time": 1718042197.8834891,
+        "server_recv_start_time": 1718042197.9774451,
+        "server_recv_end_time": 1718042197.977448,
+        "server_recv_duration": 2.86102294921875e-06,
+        "network_duration": "93.9589 ms",
+        "bandwidth": "0.0453 Mbps"
+    },
+    {
+        "frame": 116,
+        "frame_size": "2.028 KB",
+        "client_send_start_time": 1718042197.941083,
+        "server_recv_start_time": 1718042198.011528,
+        "server_recv_end_time": 1718042198.011532,
+        "server_recv_duration": 4.0531158447265625e-06,
+        "network_duration": "70.4491 ms",
+        "bandwidth": "0.2303 Mbps"
+    },
+    {
+        "frame": 117,
+        "frame_size": "2.047 KB",
+        "client_send_start_time": 1718042198.001187,
+        "server_recv_start_time": 1718042198.102724,
+        "server_recv_end_time": 1718042198.1027288,
+        "server_recv_duration": 4.76837158203125e-06,
+        "network_duration": "101.5418 ms",
+        "bandwidth": "0.1613 Mbps"
+    },
+    {
+        "frame": 118,
+        "frame_size": "1.807 KB",
+        "client_send_start_time": 1718042198.060076,
+        "server_recv_start_time": 1718042198.134953,
+        "server_recv_end_time": 1718042198.134999,
+        "server_recv_duration": 4.601478576660156e-05,
+        "network_duration": "74.9230 ms",
+        "bandwidth": "0.1929 Mbps"
+    },
+    {
+        "frame": 119,
+        "frame_size": "1.493 KB",
+        "client_send_start_time": 1718042198.1179872,
+        "server_recv_start_time": 1718042198.236476,
+        "server_recv_end_time": 1718042198.236481,
+        "server_recv_duration": 5.0067901611328125e-06,
+        "network_duration": "118.4938 ms",
+        "bandwidth": "0.1008 Mbps"
+    },
+    {
+        "frame": 120,
+        "frame_size": "2.03 KB",
+        "client_send_start_time": 1718042198.1769202,
+        "server_recv_start_time": 1718042198.2709591,
+        "server_recv_end_time": 1718042198.270965,
+        "server_recv_duration": 5.9604644775390625e-06,
+        "network_duration": "94.0449 ms",
+        "bandwidth": "0.1727 Mbps"
+    },
+    {
+        "frame": 121,
+        "frame_size": "1.604 KB",
+        "client_send_start_time": 1718042198.236402,
+        "server_recv_start_time": 1718042198.3018,
+        "server_recv_end_time": 1718042198.301844,
+        "server_recv_duration": 4.38690185546875e-05,
+        "network_duration": "65.4418 ms",
+        "bandwidth": "0.1961 Mbps"
+    },
+    {
+        "frame": 122,
+        "frame_size": "1.762 KB",
+        "client_send_start_time": 1718042198.295976,
+        "server_recv_start_time": 1718042198.419528,
+        "server_recv_end_time": 1718042198.419578,
+        "server_recv_duration": 5.0067901611328125e-05,
+        "network_duration": "123.6022 ms",
+        "bandwidth": "0.1140 Mbps"
+    },
+    {
+        "frame": 123,
+        "frame_size": "1.591 KB",
+        "client_send_start_time": 1718042198.355119,
+        "server_recv_start_time": 1718042198.4546702,
+        "server_recv_end_time": 1718042198.454675,
+        "server_recv_duration": 4.76837158203125e-06,
+        "network_duration": "99.5560 ms",
+        "bandwidth": "0.1278 Mbps"
+    },
+    {
+        "frame": 124,
+        "frame_size": "0.969 KB",
+        "client_send_start_time": 1718042198.41255,
+        "server_recv_start_time": 1718042198.485038,
+        "server_recv_end_time": 1718042198.4850419,
+        "server_recv_duration": 3.814697265625e-06,
+        "network_duration": "72.4919 ms",
+        "bandwidth": "0.1069 Mbps"
+    },
+    {
+        "frame": 125,
+        "frame_size": "1.623 KB",
+        "client_send_start_time": 1718042198.4704,
+        "server_recv_start_time": 1718042198.59553,
+        "server_recv_end_time": 1718042198.5955358,
+        "server_recv_duration": 5.7220458984375e-06,
+        "network_duration": "125.1357 ms",
+        "bandwidth": "0.1038 Mbps"
+    },
+    {
+        "frame": 126,
+        "frame_size": "1.822 KB",
+        "client_send_start_time": 1718042198.5311968,
+        "server_recv_start_time": 1718042198.62516,
+        "server_recv_end_time": 1718042198.625163,
+        "server_recv_duration": 3.0994415283203125e-06,
+        "network_duration": "93.9662 ms",
+        "bandwidth": "0.1551 Mbps"
+    },
+    {
+        "frame": 127,
+        "frame_size": "1.824 KB",
+        "client_send_start_time": 1718042198.590014,
+        "server_recv_start_time": 1718042198.657284,
+        "server_recv_end_time": 1718042198.6573272,
+        "server_recv_duration": 4.315376281738281e-05,
+        "network_duration": "67.3132 ms",
+        "bandwidth": "0.2168 Mbps"
+    },
+    {
+        "frame": 128,
+        "frame_size": "1.441 KB",
+        "client_send_start_time": 1718042198.648316,
+        "server_recv_start_time": 1718042198.7006269,
+        "server_recv_end_time": 1718042198.700632,
+        "server_recv_duration": 5.245208740234375e-06,
+        "network_duration": "52.3162 ms",
+        "bandwidth": "0.2204 Mbps"
+    },
+    {
+        "frame": 129,
+        "frame_size": "2.081 KB",
+        "client_send_start_time": 1718042198.708483,
+        "server_recv_start_time": 1718042198.7400682,
+        "server_recv_end_time": 1718042198.740072,
+        "server_recv_duration": 3.814697265625e-06,
+        "network_duration": "31.5890 ms",
+        "bandwidth": "0.5270 Mbps"
+    },
+    {
+        "frame": 130,
+        "frame_size": "1.642 KB",
+        "client_send_start_time": 1718042198.767858,
+        "server_recv_start_time": 1718042198.773199,
+        "server_recv_end_time": 1718042198.773205,
+        "server_recv_duration": 5.9604644775390625e-06,
+        "network_duration": "5.3470 ms",
+        "bandwidth": "2.4567 Mbps"
+    },
+    {
+        "frame": 131,
+        "frame_size": "1.85 KB",
+        "client_send_start_time": 1718042198.828201,
+        "server_recv_start_time": 1718042198.832869,
+        "server_recv_end_time": 1718042198.832874,
+        "server_recv_duration": 5.0067901611328125e-06,
+        "network_duration": "4.6730 ms",
+        "bandwidth": "3.1671 Mbps"
+    },
+    {
+        "frame": 132,
+        "frame_size": "1.782 KB",
+        "client_send_start_time": 1718042198.888268,
+        "server_recv_start_time": 1718042198.894846,
+        "server_recv_end_time": 1718042198.8948522,
+        "server_recv_duration": 6.198883056640625e-06,
+        "network_duration": "6.5842 ms",
+        "bandwidth": "2.1652 Mbps"
+    },
+    {
+        "frame": 133,
+        "frame_size": "1.881 KB",
+        "client_send_start_time": 1718042198.948593,
+        "server_recv_start_time": 1718042198.955887,
+        "server_recv_end_time": 1718042198.955895,
+        "server_recv_duration": 7.867813110351562e-06,
+        "network_duration": "7.3020 ms",
+        "bandwidth": "2.0608 Mbps"
+    },
+    {
+        "frame": 134,
+        "frame_size": "2.031 KB",
+        "client_send_start_time": 1718042199.007607,
+        "server_recv_start_time": 1718042199.0116322,
+        "server_recv_end_time": 1718042199.013383,
+        "server_recv_duration": 0.0017507076263427734,
+        "network_duration": "5.7759 ms",
+        "bandwidth": "2.8131 Mbps"
+    },
+    {
+        "frame": 135,
+        "frame_size": "1.516 KB",
+        "client_send_start_time": 1718042199.067532,
+        "server_recv_start_time": 1718042199.0738401,
+        "server_recv_end_time": 1718042199.0738492,
+        "server_recv_duration": 9.059906005859375e-06,
+        "network_duration": "6.3171 ms",
+        "bandwidth": "1.9199 Mbps"
+    },
+    {
+        "frame": 136,
+        "frame_size": "1.979 KB",
+        "client_send_start_time": 1718042199.126845,
+        "server_recv_start_time": 1718042199.136575,
+        "server_recv_end_time": 1718042199.13658,
+        "server_recv_duration": 5.0067901611328125e-06,
+        "network_duration": "9.7351 ms",
+        "bandwidth": "1.6263 Mbps"
+    },
+    {
+        "frame": 137,
+        "frame_size": "1.382 KB",
+        "client_send_start_time": 1718042199.185023,
+        "server_recv_start_time": 1718042199.203564,
+        "server_recv_end_time": 1718042199.203569,
+        "server_recv_duration": 5.0067901611328125e-06,
+        "network_duration": "18.5459 ms",
+        "bandwidth": "0.5961 Mbps"
+    },
+    {
+        "frame": 138,
+        "frame_size": "1.688 KB",
+        "client_send_start_time": 1718042199.243336,
+        "server_recv_start_time": 1718042199.2559528,
+        "server_recv_end_time": 1718042199.255958,
+        "server_recv_duration": 5.245208740234375e-06,
+        "network_duration": "12.6221 ms",
+        "bandwidth": "1.0699 Mbps"
+    },
+    {
+        "frame": 139,
+        "frame_size": "1.567 KB",
+        "client_send_start_time": 1718042199.302474,
+        "server_recv_start_time": 1718042199.310941,
+        "server_recv_end_time": 1718042199.3109472,
+        "server_recv_duration": 6.198883056640625e-06,
+        "network_duration": "8.4732 ms",
+        "bandwidth": "1.4795 Mbps"
+    },
+    {
+        "frame": 140,
+        "frame_size": "1.715 KB",
+        "client_send_start_time": 1718042199.360773,
+        "server_recv_start_time": 1718042199.366785,
+        "server_recv_end_time": 1718042199.366789,
+        "server_recv_duration": 4.0531158447265625e-06,
+        "network_duration": "6.0160 ms",
+        "bandwidth": "2.2806 Mbps"
+    },
+    {
+        "frame": 141,
+        "frame_size": "1.002 KB",
+        "client_send_start_time": 1718042199.418698,
+        "server_recv_start_time": 1718042199.4315908,
+        "server_recv_end_time": 1718042199.431597,
+        "server_recv_duration": 6.198883056640625e-06,
+        "network_duration": "12.8989 ms",
+        "bandwidth": "0.6214 Mbps"
+    },
+    {
+        "frame": 142,
+        "frame_size": "1.514 KB",
+        "client_send_start_time": 1718042199.476356,
+        "server_recv_start_time": 1718042199.482669,
+        "server_recv_end_time": 1718042199.482676,
+        "server_recv_duration": 6.9141387939453125e-06,
+        "network_duration": "6.3200 ms",
+        "bandwidth": "1.9165 Mbps"
+    },
+    {
+        "frame": 143,
+        "frame_size": "1.804 KB",
+        "client_send_start_time": 1718042199.533758,
+        "server_recv_start_time": 1718042199.5390542,
+        "server_recv_end_time": 1718042199.539061,
+        "server_recv_duration": 6.9141387939453125e-06,
+        "network_duration": "5.3031 ms",
+        "bandwidth": "2.7214 Mbps"
+    },
+    {
+        "frame": 144,
+        "frame_size": "1.63 KB",
+        "client_send_start_time": 1718042199.596009,
+        "server_recv_start_time": 1718042199.602936,
+        "server_recv_end_time": 1718042199.6029398,
+        "server_recv_duration": 3.814697265625e-06,
+        "network_duration": "6.9308 ms",
+        "bandwidth": "1.8814 Mbps"
+    },
+    {
+        "frame": 145,
+        "frame_size": "1.357 KB",
+        "client_send_start_time": 1718042199.655267,
+        "server_recv_start_time": 1718042199.667993,
+        "server_recv_end_time": 1718042199.668001,
+        "server_recv_duration": 7.867813110351562e-06,
+        "network_duration": "12.7339 ms",
+        "bandwidth": "0.8525 Mbps"
+    },
+    {
+        "frame": 146,
+        "frame_size": "1.883 KB",
+        "client_send_start_time": 1718042199.712991,
+        "server_recv_start_time": 1718042199.719907,
+        "server_recv_end_time": 1718042199.719915,
+        "server_recv_duration": 7.867813110351562e-06,
+        "network_duration": "6.9239 ms",
+        "bandwidth": "2.1756 Mbps"
+    },
+    {
+        "frame": 147,
+        "frame_size": "1.671 KB",
+        "client_send_start_time": 1718042199.772759,
+        "server_recv_start_time": 1718042199.7768488,
+        "server_recv_end_time": 1718042199.776854,
+        "server_recv_duration": 5.245208740234375e-06,
+        "network_duration": "4.0951 ms",
+        "bandwidth": "3.2644 Mbps"
+    },
+    {
+        "frame": 148,
+        "frame_size": "1.559 KB",
+        "client_send_start_time": 1718042199.82989,
+        "server_recv_start_time": 1718042199.833332,
+        "server_recv_end_time": 1718042199.8333418,
+        "server_recv_duration": 9.775161743164062e-06,
+        "network_duration": "3.4518 ms",
+        "bandwidth": "3.6132 Mbps"
+    },
+    {
+        "frame": 149,
+        "frame_size": "1.797 KB",
+        "client_send_start_time": 1718042199.888342,
+        "server_recv_start_time": 1718042199.894027,
+        "server_recv_end_time": 1718042199.894034,
+        "server_recv_duration": 6.9141387939453125e-06,
+        "network_duration": "5.6920 ms",
+        "bandwidth": "2.5256 Mbps"
+    },
+    {
+        "frame": 150,
+        "frame_size": "1.804 KB",
+        "client_send_start_time": 1718042199.947535,
+        "server_recv_start_time": 1718042199.9540532,
+        "server_recv_end_time": 1718042199.9540591,
+        "server_recv_duration": 5.9604644775390625e-06,
+        "network_duration": "6.5241 ms",
+        "bandwidth": "2.2121 Mbps"
+    },
+    {
+        "frame": 151,
+        "frame_size": "2.02 KB",
+        "client_send_start_time": 1718042200.006751,
+        "server_recv_start_time": 1718042200.011554,
+        "server_recv_end_time": 1718042200.0115578,
+        "server_recv_duration": 3.814697265625e-06,
+        "network_duration": "4.8068 ms",
+        "bandwidth": "3.3619 Mbps"
+    },
+    {
+        "frame": 152,
+        "frame_size": "1.466 KB",
+        "client_send_start_time": 1718042200.06548,
+        "server_recv_start_time": 1718042200.074555,
+        "server_recv_end_time": 1718042200.07456,
+        "server_recv_duration": 5.0067901611328125e-06,
+        "network_duration": "9.0799 ms",
+        "bandwidth": "1.2916 Mbps"
+    },
+    {
+        "frame": 153,
+        "frame_size": "1.327 KB",
+        "client_send_start_time": 1718042200.123569,
+        "server_recv_start_time": 1718042200.136065,
+        "server_recv_end_time": 1718042200.136081,
+        "server_recv_duration": 1.5974044799804688e-05,
+        "network_duration": "12.5120 ms",
+        "bandwidth": "0.8485 Mbps"
+    },
+    {
+        "frame": 154,
+        "frame_size": "1.804 KB",
+        "client_send_start_time": 1718042200.1812701,
+        "server_recv_start_time": 1718042200.186346,
+        "server_recv_end_time": 1718042200.186358,
+        "server_recv_duration": 1.1920928955078125e-05,
+        "network_duration": "5.0879 ms",
+        "bandwidth": "2.8366 Mbps"
+    },
+    {
+        "frame": 155,
+        "frame_size": "0.994 KB",
+        "client_send_start_time": 1718042200.238473,
+        "server_recv_start_time": 1718042200.249859,
+        "server_recv_end_time": 1718042200.249878,
+        "server_recv_duration": 1.8835067749023438e-05,
+        "network_duration": "11.4050 ms",
+        "bandwidth": "0.6972 Mbps"
+    },
+    {
+        "frame": 156,
+        "frame_size": "1.089 KB",
+        "client_send_start_time": 1718042200.296128,
+        "server_recv_start_time": 1718042200.30993,
+        "server_recv_end_time": 1718042200.309941,
+        "server_recv_duration": 1.0967254638671875e-05,
+        "network_duration": "13.8130 ms",
+        "bandwidth": "0.6307 Mbps"
+    },
+    {
+        "frame": 157,
+        "frame_size": "1.117 KB",
+        "client_send_start_time": 1718042200.354666,
+        "server_recv_start_time": 1718042200.370474,
+        "server_recv_end_time": 1718042200.370481,
+        "server_recv_duration": 6.9141387939453125e-06,
+        "network_duration": "15.8150 ms",
+        "bandwidth": "0.5650 Mbps"
+    },
+    {
+        "frame": 158,
+        "frame_size": "1.448 KB",
+        "client_send_start_time": 1718042200.412503,
+        "server_recv_start_time": 1718042200.4180129,
+        "server_recv_end_time": 1718042200.418018,
+        "server_recv_duration": 5.245208740234375e-06,
+        "network_duration": "5.5151 ms",
+        "bandwidth": "2.1004 Mbps"
+    },
+    {
+        "frame": 159,
+        "frame_size": "0.784 KB",
+        "client_send_start_time": 1718042200.4714189,
+        "server_recv_start_time": 1718042200.482121,
+        "server_recv_end_time": 1718042200.482131,
+        "server_recv_duration": 1.0013580322265625e-05,
+        "network_duration": "10.7121 ms",
+        "bandwidth": "0.5855 Mbps"
+    },
+    {
+        "frame": 160,
+        "frame_size": "2.026 KB",
+        "client_send_start_time": 1718042200.530133,
+        "server_recv_start_time": 1718042200.538114,
+        "server_recv_end_time": 1718042200.538126,
+        "server_recv_duration": 1.1920928955078125e-05,
+        "network_duration": "7.9930 ms",
+        "bandwidth": "2.0278 Mbps"
+    },
+    {
+        "frame": 161,
+        "frame_size": "1.958 KB",
+        "client_send_start_time": 1718042200.588002,
+        "server_recv_start_time": 1718042200.5925891,
+        "server_recv_end_time": 1718042200.5932941,
+        "server_recv_duration": 0.0007050037384033203,
+        "network_duration": "5.2922 ms",
+        "bandwidth": "2.9598 Mbps"
+    },
+    {
+        "frame": 162,
+        "frame_size": "1.847 KB",
+        "client_send_start_time": 1718042200.6482408,
+        "server_recv_start_time": 1718042200.652609,
+        "server_recv_end_time": 1718042200.653413,
+        "server_recv_duration": 0.0008039474487304688,
+        "network_duration": "5.1723 ms",
+        "bandwidth": "2.8568 Mbps"
+    },
+    {
+        "frame": 163,
+        "frame_size": "1.838 KB",
+        "client_send_start_time": 1718042200.707148,
+        "server_recv_start_time": 1718042200.7132711,
+        "server_recv_end_time": 1718042200.713282,
+        "server_recv_duration": 1.0967254638671875e-05,
+        "network_duration": "6.1340 ms",
+        "bandwidth": "2.3971 Mbps"
+    },
+    {
+        "frame": 164,
+        "frame_size": "1.531 KB",
+        "client_send_start_time": 1718042200.765434,
+        "server_recv_start_time": 1718042200.774861,
+        "server_recv_end_time": 1718042200.77487,
+        "server_recv_duration": 8.821487426757812e-06,
+        "network_duration": "9.4359 ms",
+        "bandwidth": "1.2980 Mbps"
+    },
+    {
+        "frame": 165,
+        "frame_size": "1.798 KB",
+        "client_send_start_time": 1718042200.824744,
+        "server_recv_start_time": 1718042200.8300328,
+        "server_recv_end_time": 1718042200.83004,
+        "server_recv_duration": 7.152557373046875e-06,
+        "network_duration": "5.2960 ms",
+        "bandwidth": "2.7160 Mbps"
+    },
+    {
+        "frame": 166,
+        "frame_size": "1.321 KB",
+        "client_send_start_time": 1718042200.882092,
+        "server_recv_start_time": 1718042200.8988538,
+        "server_recv_end_time": 1718042200.8988779,
+        "server_recv_duration": 2.4080276489257812e-05,
+        "network_duration": "16.7859 ms",
+        "bandwidth": "0.6296 Mbps"
+    },
+    {
+        "frame": 167,
+        "frame_size": "1.26 KB",
+        "client_send_start_time": 1718042200.9398139,
+        "server_recv_start_time": 1718042200.951963,
+        "server_recv_end_time": 1718042200.95197,
+        "server_recv_duration": 7.152557373046875e-06,
+        "network_duration": "12.1562 ms",
+        "bandwidth": "0.8292 Mbps"
+    },
+    {
+        "frame": 168,
+        "frame_size": "0.896 KB",
+        "client_send_start_time": 1718042200.997115,
+        "server_recv_start_time": 1718042201.013959,
+        "server_recv_end_time": 1718042201.013968,
+        "server_recv_duration": 9.059906005859375e-06,
+        "network_duration": "16.8531 ms",
+        "bandwidth": "0.4253 Mbps"
+    },
+    {
+        "frame": 169,
+        "frame_size": "1.231 KB",
+        "client_send_start_time": 1718042201.054762,
+        "server_recv_start_time": 1718042201.073317,
+        "server_recv_end_time": 1718042201.073367,
+        "server_recv_duration": 5.0067901611328125e-05,
+        "network_duration": "18.6052 ms",
+        "bandwidth": "0.5293 Mbps"
+    },
+    {
+        "frame": 170,
+        "frame_size": "0.942 KB",
+        "client_send_start_time": 1718042201.1120498,
+        "server_recv_start_time": 1718042201.129952,
+        "server_recv_end_time": 1718042201.129965,
+        "server_recv_duration": 1.3113021850585938e-05,
+        "network_duration": "17.9152 ms",
+        "bandwidth": "0.4206 Mbps"
+    },
+    {
+        "frame": 171,
+        "frame_size": "1.855 KB",
+        "client_send_start_time": 1718042201.171476,
+        "server_recv_start_time": 1718042201.180379,
+        "server_recv_end_time": 1718042201.180383,
+        "server_recv_duration": 4.0531158447265625e-06,
+        "network_duration": "8.9071 ms",
+        "bandwidth": "1.6661 Mbps"
+    },
+    {
+        "frame": 172,
+        "frame_size": "0.827 KB",
+        "client_send_start_time": 1718042201.2301471,
+        "server_recv_start_time": 1718042201.2469492,
+        "server_recv_end_time": 1718042201.246964,
+        "server_recv_duration": 1.4781951904296875e-05,
+        "network_duration": "16.8169 ms",
+        "bandwidth": "0.3934 Mbps"
+    },
+    {
+        "frame": 173,
+        "frame_size": "1.267 KB",
+        "client_send_start_time": 1718042201.290633,
+        "server_recv_start_time": 1718042201.305921,
+        "server_recv_end_time": 1718042201.3059342,
+        "server_recv_duration": 1.3113021850585938e-05,
+        "network_duration": "15.3012 ms",
+        "bandwidth": "0.6624 Mbps"
+    },
+    {
+        "frame": 174,
+        "frame_size": "1.472 KB",
+        "client_send_start_time": 1718042201.34906,
+        "server_recv_start_time": 1718042201.355625,
+        "server_recv_end_time": 1718042201.3556328,
+        "server_recv_duration": 7.867813110351562e-06,
+        "network_duration": "6.5727 ms",
+        "bandwidth": "1.7916 Mbps"
+    },
+    {
+        "frame": 175,
+        "frame_size": "1.363 KB",
+        "client_send_start_time": 1718042201.409386,
+        "server_recv_start_time": 1718042201.424481,
+        "server_recv_end_time": 1718042201.42449,
+        "server_recv_duration": 9.059906005859375e-06,
+        "network_duration": "15.1041 ms",
+        "bandwidth": "0.7219 Mbps"
+    },
+    {
+        "frame": 176,
+        "frame_size": "1.517 KB",
+        "client_send_start_time": 1718042201.4680462,
+        "server_recv_start_time": 1718042201.474338,
+        "server_recv_end_time": 1718042201.474345,
+        "server_recv_duration": 6.9141387939453125e-06,
+        "network_duration": "6.2988 ms",
+        "bandwidth": "1.9267 Mbps"
+    },
+    {
+        "frame": 177,
+        "frame_size": "2.086 KB",
+        "client_send_start_time": 1718042201.5277948,
+        "server_recv_start_time": 1718042201.534875,
+        "server_recv_end_time": 1718042201.5348842,
+        "server_recv_duration": 9.298324584960938e-06,
+        "network_duration": "7.0894 ms",
+        "bandwidth": "2.3539 Mbps"
+    },
+    {
+        "frame": 178,
+        "frame_size": "1.805 KB",
+        "client_send_start_time": 1718042201.586297,
+        "server_recv_start_time": 1718042201.592033,
+        "server_recv_end_time": 1718042201.5920482,
+        "server_recv_duration": 1.52587890625e-05,
+        "network_duration": "5.7511 ms",
+        "bandwidth": "2.5108 Mbps"
+    },
+    {
+        "frame": 179,
+        "frame_size": "2.074 KB",
+        "client_send_start_time": 1718042201.645421,
+        "server_recv_start_time": 1718042201.652171,
+        "server_recv_end_time": 1718042201.652183,
+        "server_recv_duration": 1.2159347534179688e-05,
+        "network_duration": "6.7620 ms",
+        "bandwidth": "2.4537 Mbps"
+    },
+    {
+        "frame": 180,
+        "frame_size": "1.283 KB",
+        "client_send_start_time": 1718042201.7026482,
+        "server_recv_start_time": 1718042201.71968,
+        "server_recv_end_time": 1718042201.719695,
+        "server_recv_duration": 1.5020370483398438e-05,
+        "network_duration": "17.0469 ms",
+        "bandwidth": "0.6021 Mbps"
+    },
+    {
+        "frame": 181,
+        "frame_size": "0.801 KB",
+        "client_send_start_time": 1718042201.759912,
+        "server_recv_start_time": 1718042201.777855,
+        "server_recv_end_time": 1718042201.777869,
+        "server_recv_duration": 1.4066696166992188e-05,
+        "network_duration": "17.9570 ms",
+        "bandwidth": "0.3569 Mbps"
+    },
+    {
+        "frame": 182,
+        "frame_size": "1.574 KB",
+        "client_send_start_time": 1718042201.817506,
+        "server_recv_start_time": 1718042201.8227122,
+        "server_recv_end_time": 1718042201.822717,
+        "server_recv_duration": 4.76837158203125e-06,
+        "network_duration": "5.2109 ms",
+        "bandwidth": "2.4165 Mbps"
+    },
+    {
+        "frame": 183,
+        "frame_size": "0.752 KB",
+        "client_send_start_time": 1718042201.874804,
+        "server_recv_start_time": 1718042201.8887,
+        "server_recv_end_time": 1718042201.888712,
+        "server_recv_duration": 1.1920928955078125e-05,
+        "network_duration": "13.9079 ms",
+        "bandwidth": "0.4326 Mbps"
+    },
+    {
+        "frame": 184,
+        "frame_size": "1.742 KB",
+        "client_send_start_time": 1718042201.9321148,
+        "server_recv_start_time": 1718042201.936834,
+        "server_recv_end_time": 1718042201.936838,
+        "server_recv_duration": 3.814697265625e-06,
+        "network_duration": "4.7231 ms",
+        "bandwidth": "2.9506 Mbps"
+    },
+    {
+        "frame": 185,
+        "frame_size": "1.217 KB",
+        "client_send_start_time": 1718042201.989494,
+        "server_recv_start_time": 1718042202.006631,
+        "server_recv_end_time": 1718042202.006635,
+        "server_recv_duration": 4.0531158447265625e-06,
+        "network_duration": "17.1409 ms",
+        "bandwidth": "0.5680 Mbps"
+    },
+    {
+        "frame": 186,
+        "frame_size": "1.605 KB",
+        "client_send_start_time": 1718042202.048348,
+        "server_recv_start_time": 1718042202.054029,
+        "server_recv_end_time": 1718042202.054038,
+        "server_recv_duration": 9.059906005859375e-06,
+        "network_duration": "5.6901 ms",
+        "bandwidth": "2.2566 Mbps"
+    },
+    {
+        "frame": 187,
+        "frame_size": "1.887 KB",
+        "client_send_start_time": 1718042202.107252,
+        "server_recv_start_time": 1718042202.114031,
+        "server_recv_end_time": 1718042202.1140401,
+        "server_recv_duration": 9.059906005859375e-06,
+        "network_duration": "6.7883 ms",
+        "bandwidth": "2.2238 Mbps"
+    },
+    {
+        "frame": 188,
+        "frame_size": "1.934 KB",
+        "client_send_start_time": 1718042202.165337,
+        "server_recv_start_time": 1718042202.169195,
+        "server_recv_end_time": 1718042202.1699069,
+        "server_recv_duration": 0.0007119178771972656,
+        "network_duration": "4.5698 ms",
+        "bandwidth": "3.3857 Mbps"
+    },
+    {
+        "frame": 189,
+        "frame_size": "1.782 KB",
+        "client_send_start_time": 1718042202.2230332,
+        "server_recv_start_time": 1718042202.2308779,
+        "server_recv_end_time": 1718042202.23089,
+        "server_recv_duration": 1.2159347534179688e-05,
+        "network_duration": "7.8568 ms",
+        "bandwidth": "1.8145 Mbps"
+    },
+    {
+        "frame": 190,
+        "frame_size": "1.264 KB",
+        "client_send_start_time": 1718042202.280824,
+        "server_recv_start_time": 1718042202.2975302,
+        "server_recv_end_time": 1718042202.297538,
+        "server_recv_duration": 7.867813110351562e-06,
+        "network_duration": "16.7141 ms",
+        "bandwidth": "0.6050 Mbps"
+    },
+    {
+        "frame": 191,
+        "frame_size": "1.968 KB",
+        "client_send_start_time": 1718042202.338273,
+        "server_recv_start_time": 1718042202.345267,
+        "server_recv_end_time": 1718042202.345279,
+        "server_recv_duration": 1.1920928955078125e-05,
+        "network_duration": "7.0059 ms",
+        "bandwidth": "2.2472 Mbps"
+    },
+    {
+        "frame": 192,
+        "frame_size": "1.433 KB",
+        "client_send_start_time": 1718042202.395666,
+        "server_recv_start_time": 1718042202.411819,
+        "server_recv_end_time": 1718042202.411835,
+        "server_recv_duration": 1.5974044799804688e-05,
+        "network_duration": "16.1691 ms",
+        "bandwidth": "0.7090 Mbps"
+    },
+    {
+        "frame": 193,
+        "frame_size": "1.649 KB",
+        "client_send_start_time": 1718042202.453196,
+        "server_recv_start_time": 1718042202.465469,
+        "server_recv_end_time": 1718042202.465478,
+        "server_recv_duration": 9.059906005859375e-06,
+        "network_duration": "12.2819 ms",
+        "bandwidth": "1.0741 Mbps"
+    },
+    {
+        "frame": 194,
+        "frame_size": "0.609 KB",
+        "client_send_start_time": 1718042202.5108008,
+        "server_recv_start_time": 1718042202.523787,
+        "server_recv_end_time": 1718042202.523798,
+        "server_recv_duration": 1.0967254638671875e-05,
+        "network_duration": "12.9972 ms",
+        "bandwidth": "0.3749 Mbps"
+    },
+    {
+        "frame": 195,
+        "frame_size": "1.384 KB",
+        "client_send_start_time": 1718042202.5691788,
+        "server_recv_start_time": 1718042202.5857558,
+        "server_recv_end_time": 1718042202.585767,
+        "server_recv_duration": 1.1205673217773438e-05,
+        "network_duration": "16.5882 ms",
+        "bandwidth": "0.6675 Mbps"
+    },
+    {
+        "frame": 196,
+        "frame_size": "2.041 KB",
+        "client_send_start_time": 1718042202.628314,
+        "server_recv_start_time": 1718042202.6345332,
+        "server_recv_end_time": 1718042202.634536,
+        "server_recv_duration": 2.86102294921875e-06,
+        "network_duration": "6.2220 ms",
+        "bandwidth": "2.6242 Mbps"
+    },
+    {
+        "frame": 197,
+        "frame_size": "1.533 KB",
+        "client_send_start_time": 1718042202.687799,
+        "server_recv_start_time": 1718042202.6955369,
+        "server_recv_end_time": 1718042202.695544,
+        "server_recv_duration": 7.152557373046875e-06,
+        "network_duration": "7.7450 ms",
+        "bandwidth": "1.5835 Mbps"
+    },
+    {
+        "frame": 198,
+        "frame_size": "1.918 KB",
+        "client_send_start_time": 1718042202.746939,
+        "server_recv_start_time": 1718042202.7522078,
+        "server_recv_end_time": 1718042202.752218,
+        "server_recv_duration": 1.0251998901367188e-05,
+        "network_duration": "5.2791 ms",
+        "bandwidth": "2.9066 Mbps"
+    },
+    {
+        "frame": 199,
+        "frame_size": "1.188 KB",
+        "client_send_start_time": 1718042202.8041759,
+        "server_recv_start_time": 1718042202.8207948,
+        "server_recv_end_time": 1718042202.820801,
+        "server_recv_duration": 6.198883056640625e-06,
+        "network_duration": "16.6252 ms",
+        "bandwidth": "0.5717 Mbps"
+    },
+    {
+        "frame": 200,
+        "frame_size": "1.485 KB",
+        "client_send_start_time": 1718042202.861981,
+        "server_recv_start_time": 1718042202.867315,
+        "server_recv_end_time": 1718042202.867319,
+        "server_recv_duration": 4.0531158447265625e-06,
+        "network_duration": "5.3382 ms",
+        "bandwidth": "2.2255 Mbps"
+    },
+    {
+        "Frames read": 202,
+        "Total time": 12.023069143295288,
+        "Total bytes received": "0.316051 MB",
+        "Overall FPS": 16.801034543883173,
+        "Overall Bandwidth": "2.528408 Mbps"
+    }
+]
