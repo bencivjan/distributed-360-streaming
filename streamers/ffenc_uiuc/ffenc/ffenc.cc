@@ -51,7 +51,9 @@ bool ffenc::init()
 	c->pix_fmt = AV_PIX_FMT_YUV420P;
 	c->max_b_frames = 0;
 	
-	int br = 500 * 1000;
+	// int br = 500 * 1000;
+	// int br = 50000 * 1000;
+	int br = 25000 * 1000;
 	c->bit_rate = br;
 	c->rc_min_rate = br;
 	c->rc_max_rate = br;
@@ -110,7 +112,7 @@ void ffenc::change_settings(int bitrate_kbps, int fps)
 	c->rc_max_rate = value;
 	c->rc_buffer_size = value / fps;
 	c->rc_initial_buffer_occupancy = c->rc_buffer_size;
-	c->gop_size = fps;
+	// c->gop_size = fps;
 	AVRational ration = {1, fps};
 	c->time_base = ration;
 }

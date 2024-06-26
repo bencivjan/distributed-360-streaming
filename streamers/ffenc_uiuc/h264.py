@@ -17,9 +17,14 @@ class H264:
         self.recv_frame_idx = 0
         self.nbytes_received = 0
 
+        # print(w, h, fps)
+
+
     def send_frame(self, frame):
+        # self.encoder.change_settings(5000, 31)
         try:
             out = self.encoder.process_frame(frame)
+            # print(out.shape)
 
             print(f'Frame size: {out.shape[0]} bytes')
             start_time = time.time()
@@ -65,7 +70,9 @@ class H264:
         server_recv_end_time = time.time()
 
         data = np.frombuffer(self.buffer, dtype=np.uint8)
+        print(data.nbytes)
         frame = self.decoder.process_frame(data)
+        # print(frame.size)
         frame = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
         self.buffer = b''
 

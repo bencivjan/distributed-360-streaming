@@ -25,44 +25,48 @@ def handle_client(client_socket, addr):
     global video_captures
     client_ip = addr[0]
 
-    IMGS_PATH = f'./received_imgs_{client_ip}/'
-    os.makedirs(IMGS_PATH, exist_ok=True)
-    frame_idx = 0
-
     compression_alg = struct.unpack('B', client_socket.recv(1))[0]
     print(f'compression_alg: {compression_alg}')
+
+    IMGS_PATH = f'./received_imgs_{compression_alg}_{client_ip}/'
+
     if compression_alg == 0x0:
-        logger = Logger(f'./basic_logs_{client_ip}.txt')
+        logger = Logger(f'./basic_logs_{client_ip}.json')
         streamer = basic.Basic(client_socket, logger=logger)
     elif compression_alg == 0x1:
-        logger = Logger(f'./mjpeg30_logs_{client_ip}.txt')
+        logger = Logger(f'./mjpeg30_logs_{client_ip}.json')
         streamer = mjpeg.Mjpeg(client_socket, logger=logger)
     elif compression_alg == 0x2:
-        logger = Logger(f'./mjpeg50_logs_{client_ip}.txt')
+        logger = Logger(f'./mjpeg50_logs_{client_ip}.json')
         streamer = mjpeg.Mjpeg(client_socket, logger=logger)
     elif compression_alg == 0x3:
-        logger = Logger(f'./mjpeg90_logs_{client_ip}.txt')
+        logger = Logger(f'./mjpeg90_logs_{client_ip}.json')
         streamer = mjpeg.Mjpeg(client_socket, logger=logger)
     elif compression_alg == 0x4:
-        logger = Logger(f'./webp30_logs_{client_ip}.txt')
+        logger = Logger(f'./webp30_logs_{client_ip}.json')
         streamer = webp.Webp(client_socket, logger=logger)
     elif compression_alg == 0x5:
-        logger = Logger(f'./webp50_logs_{client_ip}.txt')
+        logger = Logger(f'./webp50_logs_{client_ip}.json')
         streamer = webp.Webp(client_socket, logger=logger)
     elif compression_alg == 0x6:
-        logger = Logger(f'./webp90_logs_{client_ip}.txt')
+        logger = Logger(f'./webp90_logs_{client_ip}.json')
         streamer = webp.Webp(client_socket, logger=logger)
     elif compression_alg == 0x7:
-        logger = Logger(f'./tiled_logs_{client_ip}.txt')
+        logger = Logger(f'./tiled_logs_{client_ip}.json')
         streamer = tile_spatial.TileSpatial(client_socket, logger=logger)
     elif compression_alg == 0x8:
-        logger = Logger(f'./h264_{client_ip}.txt')
+        bitrate = '500K'
+        logger = Logger(f'./h264_{bitrate}_logs_{client_ip}.json')
+        IMGS_PATH = f'./received_imgs_{compression_alg}_{bitrate}_{client_ip}/'
         streamer = h264.H264(client_socket, logger=logger)
     else:
         print('Unsupported compression algorithm!')
         return
+    
+    os.makedirs(IMGS_PATH, exist_ok=True)
 
     total_start_time = time.time()
+    frame_idx = 0
     while True:
         try:
             frame = streamer.get_frame()
