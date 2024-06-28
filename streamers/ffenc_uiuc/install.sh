@@ -56,7 +56,7 @@ c++ -O3 -Wall -shared -std=c++11 ${LINUX:+-fPIC} \
     -lavformat -lavcodec -lavutil -lswscale \
     -lx264 \
     -lm -lpthread -lz -ldl -lX11 \
-    -lstdc++ -lc ${LINUX:+-lrt} -lvdpau \
+    -lstdc++ -lc ${LINUX:+-lrt} -lvdpau ${LINUX:+-ldrm} \
 
 c++ -O3 -Wall -shared -std=c++11 ${LINUX:+-fPIC} \
     ${DARWIN:+-undefined dynamic_lookup} \
@@ -72,6 +72,6 @@ c++ -O3 -Wall -shared -std=c++11 ${LINUX:+-fPIC} \
     -lavformat -lavcodec -lavutil -lswscale \
     -lx264 \
     -lm -lpthread -lz -ldl -lX11 \
-    -lstdc++ -lc ${LINUX:+-lrt} -lvdpau \
+    -lstdc++ -lc ${LINUX:+-lrt} -lvdpau ${LINUX:+-ldrm} \
 
 echo "Done!"
