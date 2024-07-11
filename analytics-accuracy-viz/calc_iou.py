@@ -101,8 +101,8 @@ def crosswalk_main():
         width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
         height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
         print(width, height)
-        os.mkdir('out_videos', exist_ok=True)
-        vid_writer = cv2.VideoWriter(f'out_videos/boxed_{vid_name}.mp4', fourcc, fps, (width, height))
+        os.mkdir('out-videos', exist_ok=True)
+        vid_writer = cv2.VideoWriter(f'out-videos/boxed_{vid_name}.mp4', fourcc, fps, (width, height))
 
         while True:
             ret, image = cap.read()
@@ -149,9 +149,9 @@ def crosswalk_main():
             json.dump(iou, f, indent=4)
 
 def driving_main():
-    VIDEOS = ['nydriving_1m_10.mp4', 'nydriving_1m_15.mp4', 'nydriving_1m_30.mp4',
-              'nydriving_3m_10.mp4', 'nydriving_3m_15.mp4', 'nydriving_3m_30.mp4',
-              'nydriving_5m_10.mp4', 'nydriving_5m_15.mp4', 'nydriving_5m_30.mp4']
+    VIDEOS = ['nydriving_1M_10.mp4', 'nydriving_1M_15.mp4', 'nydriving_1M_30.mp4',
+              'nydriving_3M_10.mp4', 'nydriving_3M_15.mp4', 'nydriving_3M_30.mp4',
+              'nydriving_5M_10.mp4', 'nydriving_5M_15.mp4', 'nydriving_5M_30.mp4']
 
     for video in VIDEOS:
         vid_name = video.split('.')[0]
@@ -165,7 +165,7 @@ def driving_main():
         iou = {}
         idx = 0
 
-        gt = cv2.VideoCapture(os.path.join('videos', 'nydriving_5m_30.mp4')) # Use highest quality video for ground truth predictions
+        gt = cv2.VideoCapture(os.path.join('videos', 'nydriving_5M_30.mp4')) # Use highest quality video for ground truth predictions
         gt_fps = int(gt.get(cv2.CAP_PROP_FPS))
 
         cap = cv2.VideoCapture(os.path.join('videos', video))
@@ -174,8 +174,9 @@ def driving_main():
         width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
         height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
         print(width, height)
-        os.makedirs('out_videos', exist_ok=True)
-        vid_writer = cv2.VideoWriter(f'out_videos/boxed_{vid_name}.mp4', fourcc, gt_fps, (width, height))
+        os.makedirs('out-videos', exist_ok=True)
+        os.makedirs('out-data', exist_ok=True)
+        vid_writer = cv2.VideoWriter(f'out-videos/boxed_{vid_name}.mp4', fourcc, gt_fps, (width, height))
 
         while True:
             gt_ret, gt_image = gt.read()
@@ -199,21 +200,20 @@ def driving_main():
                 results = pred_model.predict(image, verbose=False)
 
             for box in results[0].boxes:
-                bb = middle_xywh2xyxy(box.xywh.numpy()[0])
+                bb = middle_xywh2xyxy(box.xywh.cpu().numpy()[0])
                 bounding_boxes.append((*bb, 'r'))
 
             ground_truth = truth_model.predict(gt_image, verbose=False)
             gt_to_pred_iou = np.zeros((len(ground_truth[0].boxes), len(results[0].boxes)))
 
             for i, truth in enumerate(ground_truth[0].boxes):
-                truth_bb = middle_xywh2xyxy(truth.xywh.numpy()[0])
-                bounding_boxes.append((*bb, 'g'))
+                truth_bb = middle_xywh2xyxy(truth.xywh.cpu().numpy()[0])
+                bounding_boxes.append((*truth_bb, 'g'))
                 
                 for j, pred in enumerate(results[0].boxes):
-                    pred_bb = middle_xywh2xyxy(pred.xywh.numpy()[0])
+                    pred_bb = middle_xywh2xyxy(pred.xywh.cpu().numpy()[0])
                     if pred.cls[0] == truth.cls[0]:
                         gt_to_pred_iou[i][j] = calculate_iou(truth_bb, pred_bb)
-
 
             gt_to_pred_iou = gt_to_pred_iou.max(axis=1)
             iou[f'frame{idx}'] = gt_to_pred_iou.mean()
@@ -237,7 +237,7 @@ def driving_main():
         if len(iou.values()) > 0:
             iou['Average Iou'] = s / len(iou.values())
 
-        with open(f'{vid_name}_iou.json', 'a') as f:
+        with open(f'out-data/{vid_name}_iou.json', 'a') as f:
             json.dump(iou, f, indent=4)
 
 if __name__ == '__main__':
