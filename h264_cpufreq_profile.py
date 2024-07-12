@@ -5,9 +5,8 @@ import cv2
 import time
 import json
 import socket
-import datetime
+from datetime import datetime
 import struct
-from logger import Logger
 from collections import defaultdict
 
 mod_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), 'streamers', 'ffenc_uiuc'))
@@ -19,7 +18,7 @@ from streamers.ffenc_uiuc import ffenc
 # `sh -c 'sudo cpufreq-set -g userspace'`
 def set_cpu_freq(cpu_freq):
     with open('/sys/devices/system/cpu/cpufreq/policy0/scaling_governor', 'r') as file:
-        assert file.read().strip() == 'userspace', 'Scaling governor must be set to userspace'
+        assert file.read().strip() == 'userspace', 'Scaling governor must be set to userspace\n`sudo cpufreq-set -g userspace`'
     
     cpu_freq = str(cpu_freq)
     print(f'Setting cpu freqency to {cpu_freq} KHz')
@@ -33,7 +32,7 @@ def set_cpu_freq(cpu_freq):
         print("Failed to set cpu frequency")
         print(f"Error: {result.stderr}")
 
-def profile(sock=None, cycles=1):
+def profile(sock=None, cycles=1, replay_forever=False):
     cap = cv2.VideoCapture('videos/climbing.nut')
 
     fps = int(cap.get(cv2.CAP_PROP_FPS))
@@ -49,41 +48,51 @@ def profile(sock=None, cycles=1):
     test_results_fps = defaultdict(int)
 
     for freq in FREQS:
-        # set_cpu_freq(freq)
+        set_cpu_freq(freq)
 
         print(f'Timing h264 compression at {str(freq / 1_000_000)} GHz')
         print(f'Running {cycles} cycle(s)')
 
+        test_start_time = time.time()
+        total_frames = 0
+
         for cycle in range(cycles):
             print(f'Starting cycle {cycle+1}')
+            if replay_forever:
+                print('Streaming video continuously...')
             total_time = 0
-            frame_count = 0
-            test_start_time = time.time()
             while True:
-                ret, frame = cap.read()
-                if not ret:
-                    total_time = time.time() - test_start_time
-                    test_results[f'{freq / 1_000_000}'] += total_time
-                    test_results_fps[f'{freq / 1_000_000} fps'] += total_time
+                try:
+                    ret, frame = cap.read()
+                    if not ret:
+                        # total_time = time.time() - test_start_time
+                        # test_results[f'{freq / 1_000_000}'] += total_time
+                        
+                        print('Restarting video...')
+                        _ = cap.set(cv2.CAP_PROP_POS_FRAMES, 0)
+                        if replay_forever:
+                            continue
+                        else:
+                            break
 
-                    _ = cap.set(cv2.CAP_PROP_POS_FRAMES, 0)
-                    continue
-                    # break
-
-                frame_count += 1
-                
-                out = encoder.process_frame(frame)
-                if sock:
-                    start_time = time.time()
-                    sock.sendall(struct.pack('!d', start_time))
-                    sock.sendall(struct.pack('!I', out.shape[0]))
-                    sock.sendall(out.tobytes())
+                    total_frames += 1
+                    
+                    out = encoder.process_frame(frame)
+                    if sock:
+                        start_time = time.time()
+                        sock.sendall(struct.pack('!d', start_time))
+                        sock.sendall(struct.pack('!I', out.shape[0]))
+                        sock.sendall(out.tobytes())
+                except:
+                    break
 
             print('Finished profiling')
+            print(f'{freq / 1_000_000} GHz: {total_frames} frames')
             print(f'{freq / 1_000_000} GHz: {total_time} seconds')
         
-        test_results[f'{freq / 1_000_000}'] /= cycles
-        test_results_fps[f'{freq / 1_000_000} fps'] = (frame_count / test_results[f'{freq / 1_000_000}'])
+        total_time = time.time() - test_start_time
+        test_results[f'{freq / 1_000_000}'] = total_time / cycles
+        test_results_fps[f'{freq / 1_000_000} fps'] = total_frames / total_time
 
     cap.release()
 
@@ -128,7 +137,8 @@ if __name__ == '__main__':
         print('No server IP provided, profiling compression only...')
         client_socket = None
 
-    # profile(sock=None, cycles=10)
+    # profile(cycles=10)
 
-    client_socket.sendall(struct.pack('B', 0x8)) # Tell server we are streaming with h264
-    profile(sock=client_socket, cycles=1)
+    if client_socket:
+        client_socket.sendall(struct.pack('B', 0x8)) # Tell server we are streaming with h264
+        profile(sock=client_socket, replay_forever=True)
