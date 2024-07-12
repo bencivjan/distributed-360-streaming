@@ -3,6 +3,8 @@ from ultralytics import YOLO
 import json
 import os
 import pandas as pd
+import numpy as np
+import torch
 
 def calculate_iou(box1, box2):
     """
@@ -30,7 +32,6 @@ def calculate_iou(box1, box2):
     box2_area = (x2_max - x2_min) * (y2_max - y2_min)
 
     union_area = box1_area + box2_area - inter_area
-    print(union_area)
 
     iou = inter_area / union_area if union_area != 0 else 0
 
@@ -79,7 +80,7 @@ def plot_bounding_boxes(image, bounding_boxes, output_path=None):
     
     return image
 
-def main():
+def crosswalk_main():
     VIDEOS = ['crosswalk_250k_30.mp4', 'crosswalk_500k_30.mp4', 'crosswalk_750K_30.mp4', 'crosswalk_1m_30.mp4',
               'crosswalk_250k_15.mp4', 'crosswalk_500k_15.mp4', 'crosswalk_750k_15.mp4', 'crosswalk_1m_15.mp4',
               'crosswalk_250k_10.mp4', 'crosswalk_500k_10.mp4', 'crosswalk_750k_10.mp4', 'crosswalk_1m_10.mp4']
@@ -88,21 +89,20 @@ def main():
         vid_name = video.split('.')[0]
 
         yolov8n_model = YOLO('yolov8l.pt')
-        cap = cv2.VideoCapture(video)
+        cap = cv2.VideoCapture(os.path.join('videos', video))
         labels = pd.read_csv('crosswalk.csv')
 
         ret = True
         iou = {}
         idx = 0
-        # print(cap.get(cv2.CAP_PROP_FRAME_COUNT))
-        # print(len(labels))
 
         fourcc = cv2.VideoWriter_fourcc(*'avc1')
         fps = int(video.split('.')[0].split('_')[-1])
         width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
         height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
         print(width, height)
-        vid_writer = cv2.VideoWriter(f'boxed_{vid_name}.mp4', fourcc, fps, (width, height))
+        os.mkdir('out-videos', exist_ok=True)
+        vid_writer = cv2.VideoWriter(f'out-videos/boxed_{vid_name}.mp4', fourcc, fps, (width, height))
 
         while True:
             ret, image = cap.read()
@@ -148,5 +148,97 @@ def main():
         with open(f'{vid_name}_iou.json', 'a') as f:
             json.dump(iou, f, indent=4)
 
+def driving_main():
+    VIDEOS = ['nydriving_1M_10.mp4', 'nydriving_1M_15.mp4', 'nydriving_1M_30.mp4',
+              'nydriving_3M_10.mp4', 'nydriving_3M_15.mp4', 'nydriving_3M_30.mp4',
+              'nydriving_5M_10.mp4', 'nydriving_5M_15.mp4', 'nydriving_5M_30.mp4']
+
+    for video in VIDEOS:
+        vid_name = video.split('.')[0]
+
+        device = "cuda" if torch.cuda.is_available() else "cpu"
+
+        truth_model = YOLO('yolov8x.pt').to(device)
+        pred_model = YOLO('yolov8n.pt').to(device)
+
+        ret = True
+        iou = {}
+        idx = 0
+
+        gt = cv2.VideoCapture(os.path.join('videos', 'nydriving_5M_30.mp4')) # Use highest quality video for ground truth predictions
+        gt_fps = int(gt.get(cv2.CAP_PROP_FPS))
+
+        cap = cv2.VideoCapture(os.path.join('videos', video))
+        fourcc = cv2.VideoWriter_fourcc(*'avc1')
+        fps = int(cap.get(cv2.CAP_PROP_FPS))
+        width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+        height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+        print(width, height)
+        os.makedirs('out-videos', exist_ok=True)
+        os.makedirs('out-data', exist_ok=True)
+        vid_writer = cv2.VideoWriter(f'out-videos/boxed_{vid_name}.mp4', fourcc, gt_fps, (width, height))
+
+        while True:
+            gt_ret, gt_image = gt.read()
+            # Only read new image from test video if ground truth frame index is divisible by fps ratio
+            # E.g. gt_fps = 30, fps = 10. We want to read a new test video frame every 3 ground truth frames
+            #       to avoid running out of frames early. We will reuse the same predictions for these intermediate frames.
+            if idx % (gt_fps // fps) == 0:
+                ret, image = cap.read()
+                print(idx)
+            
+            if ret is False:
+                print('Finished reading video frames...')
+                break
+            elif gt_ret is False:
+                print('Ground truth video ran out of frames... double check video files')
+                break
+
+            bounding_boxes = []
+
+            if idx % (gt_fps // fps) == 0: # Same logic as above
+                results = pred_model.predict(image, verbose=False)
+
+            for box in results[0].boxes:
+                bb = middle_xywh2xyxy(box.xywh.cpu().numpy()[0])
+                bounding_boxes.append((*bb, 'r'))
+
+            ground_truth = truth_model.predict(gt_image, verbose=False)
+            gt_to_pred_iou = np.zeros((len(ground_truth[0].boxes), len(results[0].boxes)))
+
+            for i, truth in enumerate(ground_truth[0].boxes):
+                truth_bb = middle_xywh2xyxy(truth.xywh.cpu().numpy()[0])
+                bounding_boxes.append((*truth_bb, 'g'))
+                
+                for j, pred in enumerate(results[0].boxes):
+                    pred_bb = middle_xywh2xyxy(pred.xywh.cpu().numpy()[0])
+                    if pred.cls[0] == truth.cls[0]:
+                        gt_to_pred_iou[i][j] = calculate_iou(truth_bb, pred_bb)
+
+            gt_to_pred_iou = gt_to_pred_iou.max(axis=1)
+            iou[f'frame{idx}'] = gt_to_pred_iou.mean()
+
+            print(gt_to_pred_iou)
+            print(gt_to_pred_iou.mean())
+
+            image_boxed = plot_bounding_boxes(gt_image, bounding_boxes)
+
+            vid_writer.write(image_boxed)
+
+            idx += 1
+
+        cap.release()
+        vid_writer.release()
+
+        s = 0
+        for val in iou.values():
+            s += val
+
+        if len(iou.values()) > 0:
+            iou['Average Iou'] = s / len(iou.values())
+
+        with open(f'out-data/{vid_name}_iou.json', 'a') as f:
+            json.dump(iou, f, indent=4)
+
 if __name__ == '__main__':
-    main()
+    driving_main()
