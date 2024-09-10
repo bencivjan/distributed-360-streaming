@@ -55,7 +55,7 @@ def handle_client(client_socket, addr):
         logger = Logger(f'./tiled_logs_{client_ip}.json')
         streamer = tile_spatial.TileSpatial(client_socket, logger=logger)
     elif compression_alg == 0x8:
-        bitrate = '500K'
+        bitrate = '25M'
         logger = Logger(f'./h264_{bitrate}_logs_{client_ip}.json')
         IMGS_PATH = f'./received_imgs_{compression_alg}_{bitrate}_{client_ip}/'
         streamer = h264.H264(client_socket, logger=logger)

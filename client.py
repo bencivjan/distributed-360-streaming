@@ -23,7 +23,7 @@ def stream_video(compression='none'):
         TCP_IP = sys.argv[1]
     TCP_PORT = 8010
 
-    cap = cv2.VideoCapture('videos/climbing.mp4')
+    cap = cv2.VideoCapture('videos/ny_driving.nut')
     client_socket = socket.socket()
     client_socket.settimeout(5)  # 5 seconds timeout
     while True:
