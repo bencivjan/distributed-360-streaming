@@ -88,7 +88,7 @@ def crosswalk_main():
     for video in VIDEOS:
         vid_name = video.split('.')[0]
 
-        yolov8n_model = YOLO('yolov8l.pt')
+        yolov8n_model = YOLO('yolov8n.pt')
         cap = cv2.VideoCapture(os.path.join('videos', video))
         labels = pd.read_csv('crosswalk.csv')
 
@@ -101,7 +101,7 @@ def crosswalk_main():
         width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
         height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
         print(width, height)
-        os.mkdir('out-videos', exist_ok=True)
+        os.makedirs('out-videos', exist_ok=True)
         vid_writer = cv2.VideoWriter(f'out-videos/boxed_{vid_name}.mp4', fourcc, fps, (width, height))
 
         while True:
@@ -241,4 +241,5 @@ def driving_main():
             json.dump(iou, f, indent=4)
 
 if __name__ == '__main__':
-    driving_main()
+    # driving_main()
+    crosswalk_main()
