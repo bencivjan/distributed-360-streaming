@@ -17,6 +17,7 @@ class H264:
         self.recv_frame_idx = 0
         self.nbytes_received = 0
 
+        self.encoder.change_settings(25000, int(fps))
         # print(w, h, fps)
 
 

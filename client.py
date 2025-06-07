@@ -23,7 +23,7 @@ def stream_video(compression='none'):
         TCP_IP = sys.argv[1]
     TCP_PORT = 8010
 
-    cap = cv2.VideoCapture('videos/climbing.mp4')
+    cap = cv2.VideoCapture('videos/ny_driving.nut')
     client_socket = socket.socket()
     client_socket.settimeout(5)  # 5 seconds timeout
     while True:
@@ -39,9 +39,9 @@ def stream_video(compression='none'):
             time.sleep(5)
 
     try:
-        # target_fps = 5 # Thottle to set fps for energy consistency
+        target_fps = 10 # Thottle to set fps for energy consistency
         # Calculate the time to wait between frames
-        # frame_time = 1.0 / target_fps
+        frame_time = 1.0 / target_fps
         frames_read = 0
         test_start_time = time.time()
 
@@ -79,7 +79,8 @@ def stream_video(compression='none'):
             client_socket.sendall(struct.pack('B', 0x7))
             streamer = tile_spatial.TileSpatial(client_socket, logger=logger)
         elif compression == 'h264':
-            logger = Logger(f'./h264_25M_logs.json')
+            bitrate = '1_5ghz'
+            logger = Logger(f'./h264_{bitrate}_logs.json')
             client_socket.sendall(struct.pack('B', 0x8))
             fps = cap.get(cv2.CAP_PROP_FPS)
             width = cap.get(cv2.CAP_PROP_FRAME_WIDTH)
@@ -90,23 +91,26 @@ def stream_video(compression='none'):
             return
 
         while True:
-            # start_time = time.time()
+            start_time = time.time()
             ret, frame = cap.read()
             frames_read += 1
             if not ret:
-                print("Failed to capture frame")
-                print(f'Actual frame rate: {frames_read / (time.time() - test_start_time)}')
-                break
+                # print("Failed to capture frame")
+                # print(f'Actual frame rate: {frames_read / (time.time() - test_start_time)}')
+                _ = cap.set(cv2.CAP_PROP_POS_FRAMES, 0)
+                print('Restarting video...')
+                continue
 
             streamer.send_frame(frame)
             print(frame.nbytes)
 
             # Calculate elapsed time and sleep if necessary
-            # elapsed_time = time.time() - start_time
-            # time_to_wait = frame_time - elapsed_time
-            # if time_to_wait > 0:
-            #     time.sleep(time_to_wait)
+            elapsed_time = time.time() - start_time
+            time_to_wait = frame_time - elapsed_time
+            if time_to_wait > 0:
+                time.sleep(time_to_wait)
     finally:
+        print(f'Actual frame rate: {frames_read / (time.time() - test_start_time)}')
         logger.flush()
         cap.release()
         client_socket.close()

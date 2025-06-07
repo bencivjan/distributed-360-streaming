@@ -85,14 +85,13 @@ def profile(sock=None, cycles=1, replay_forever=False):
                         sock.sendall(out.tobytes())
                 except:
                     break
-
-            print('Finished profiling')
-            print(f'{freq / 1_000_000} GHz: {total_frames} frames')
-            print(f'{freq / 1_000_000} GHz: {total_time} seconds')
         
         total_time = time.time() - test_start_time
         test_results[f'{freq / 1_000_000}'] = total_time / cycles
         test_results_fps[f'{freq / 1_000_000} fps'] = total_frames / total_time
+        print('Finished profiling')
+        print(f'{freq / 1_000_000} GHz: {total_frames} frames')
+        print(f'{freq / 1_000_000} GHz: {total_time} seconds')
 
     cap.release()
 
